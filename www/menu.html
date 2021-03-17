@@ -1,0 +1,2023 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, user-scalable=no;">
+<link rel="stylesheet" href="css/mycss.css" />
+<link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+<script src="cordova.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/hammer.js"></script>
+<script src="js/jscharts.js"></script>
+<script src="js/jquery.mobile-1.3.2.js"></script>
+<title>Menu</title>
+<style>
+
+input{
+	border: 1px solid 		#ccc /*{c-bup-border}*/;
+	background: 			#eee /*{c-bup-background-color}*/;
+	font-weight: bold;
+	color: 					#222 /*{c-bup-color}*/;
+	text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #fff /*{c-bup-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff /*{c-bup-background-start}*/), to( #f1f1f1 /*{c-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/);
+	width:90%;
+	height:45px;
+	border-radius:10px;
+	margin:0 auto;
+	border-bottom:1px solid #ccc;
+	}
+
+input[placeholder]{
+	text-align:center;
+	font-weight:200;
+	}
+	
+#movie-table{
+	text-align:left;
+	margin:0 auto;
+	}
+
+#movie-table th{
+	width:20%;
+	}	
+	
+.titleTable{
+	text-align:center;
+	color:#F33C3C;
+	}
+
+.ui-controlgroup-controls{
+	width:110% !important;
+	}		
+	
+</style>
+
+</head>
+
+<body>   
+ 
+<body>
+<div class="logoPresente">
+  <img src="img/autopeso2.png">
+</div>
+<div id="preload">
+   <div class="close">X</div>  
+   <img class="fondoCirculo" src="img/fondoCirculo.png"/>
+   <h2>Enviando .... </h2>
+   <p style="text-align:center">Por favor espera 10 segundos, estamos asegurando los datos</p>
+</div>
+
+
+
+<div data-role="page" id="menu">
+     <div id="contenedor">
+      <header></header>
+      <section id="contenido">
+         <div id="base">
+           <img src="img/base1.png" alt="base">
+         </div>
+         <div id="base2">
+            <ul class="listaMenu">
+              <li><a href="#infoCliente" data-transition="pop"><span class="infoCliente"></span></a></li>
+              <li><a href="#equiposRealizar" data-transition="pop"><span class="equipos"></span></a></li>              
+              <li><a href="#recibo" data-transition="pop"><span class="recibo"></span></a></li>    
+            </ul> 
+            <img src="img/base2.png" alt="base">
+         </div>
+         <div id="login"></div> 
+      </section>
+      <footer class="footerMenu foot" style="position:relative; overflow:visible;">
+        <ul class="listaFooter" >
+              <li><a href=""><span class="redes"></span></a></li>
+              <li><a href=""><span class="sincronizar" onClick="sincronizar()"></span></a></li>
+              <!--<li><a href=""><span class="sincronizar"></span></a></li>-->
+              <li><a onClick="guardarDB()"><span class="reportarFallo"></span></a></li>
+              <li><a onClick="verDB()" href=""><span class="salir"></span></a></li>
+              
+        </ul>
+       
+         <div id="cuadroDB">
+              <div class="infoDB"></div>
+              <div style="width:85%; margin-left:8%">
+              	<button onClick="enviarDB()" class="botonDB" >Sincronizar guardados</button>
+              </div>
+              
+         </div>
+      </footer>
+    </div>
+</div><!--Cierra data role-->
+
+<div data-role="page" id="infoCliente">
+     <div id="contenedor">
+      <header></header>
+      <section id="contenido">
+      <a href="" data-rel="back" id="back"><img src="img/back.png"></a>
+        <form id="ic" method="post" style="margin-left:25%">
+          <div data-role="fieldcontain">
+              <label for="empresaIs">Empresa:</label><br>
+              <input type="text" name="empresaIs" id="empresaIs" placeholder="Empresa" />
+              <br><br>
+              <label for="direccionIs">Dirección:</label><br>
+              <input type="text" name="direccionIs" id="direccionIs" placeholder="Direccion"  />
+              <br><br>
+              <label for="telefonoIs">Teléfono:</label><br>
+              <input type="number" name="telefonoIs" id="telefonoIs" placeholder="Telefono" />
+              <br><br>
+              <label for="empresaIs">Nit:</label><br>
+              <input type="number" name="nitIs" id="nitIs" placeholder="Nit"  />
+              <br><br>
+              <label style="width:26%" for="ciudadIs">Ciudad - Departamento:</label><br>
+              <input type="text" name="ciudadIs" id="ciudadIs" placeholder="Ciudad - Departamento" />
+              <br><br>
+              <label for="sucrusalIs">Sucursal:</label><br>
+              <select name="sucrusalIs" class="sucrusalIs" id="sucrusalIs">
+                    
+                  <option value="sabaneta">Sabaneta</option>
+                  <option value="cartagena">Cartagena</option>
+                  <option value="barranquilla">Barranquilla</option>
+                  <option value="bogota">Bogotá</option>
+                  <option value="cali">Calí</option>
+                  
+		      </select>
+              
+              <div id="almacen"></div>
+              
+              <br><br>
+              <button onClick="guardarInfoCliente()" class="guardarInfoCliente" value="guardar"></button>
+              </div>
+            </form>  
+           
+           
+         <div id="separador"></div>      
+      </section>
+      <footer class="footerMenu">
+        <ul class="listaFooter">
+              <li><a href="#menu"><span class="inicio"></span></a></li>
+              <!--<li><a href=""><span class="sincronizar"></span></a></li>-->
+              <!--<li><a><span class="reportarFallo"></span></a></li>-->
+              <!--<li><a href=""><span class="salir"></span></a></li>-->
+        </ul>
+      </footer>
+    </div>
+</div><!--Cierra data role-->
+
+
+<!--Pagina recibo-->
+<div data-role="page" id="recibo">
+  <header></header>
+  <div data-role="content">
+     <div data-role="fieldcontain" id="listado">
+      
+            
+          <div id="list"></div>
+          
+          <canvas id="firma" width="800%" height="400px" style="border:1px solid #000; margin-left:9%"></canvas>
+          <div id="limpiarCanvas" style="width:18%; margin-left:42%;">
+            <button>Borrar</button> 
+          </div>
+          <div>
+             <label for="nomCliente">Responsable de la firma:</label>
+             <input type="text" name="nomCliente" id="nomCliente" >
+          </div>
+          <br><br>
+          <div>
+             <label for="correoContacto">Correo de contácto</label>
+             <input type="text" name="correoContacto" id="correoContacto" >
+          </div>
+          
+	</div>
+    <button onClick="guardarFirma()" value="Guardar"></button>
+  </div>
+  <footer class="footerMenu">
+        <ul class="listaFooter">
+              <li><a href="#menu"><span class="inicio"></span></a></li>
+              <!--<li><a href=""><span class="sincronizar"></span></a></li>-->
+              <!--<li><a><span class="reportarFallo"></span></a></li>-->
+              <!--<li><a href=""><span class="salir"></span></a></li>-->
+        </ul>
+      </footer>
+</div>
+
+
+
+
+<div data-role="page" id="equiposRealizar">
+
+    <div id="contenedor">
+      <header></header>
+      <section id="contenido">
+      <!--<div class="clickme">Click me</div>-->
+      <a href="" data-rel="back" id="back"><img src="img/back.png"></a>
+         <div id="base" style="margin-top:70px">
+           <img src="img/equipos.png" width="18%" style="margin-left:21%">
+           <br>
+           <img src="img/base1.png" alt="base">
+         </div>
+         <div id="base2" style="margin-top:10px">
+              <div id="equipos">
+                  <ul class="listaEquipos">
+                    <li class="list" onClick="obtenerIndex(this)">                      
+                    <a href="#datosEquipo0" data-role="button" data-transition="pop" class="datoE btnDatos" style="line-height:20px;"> Datos del Equipo</a></li>
+                                       
+                  </ul>
+              </div>     
+            <img src="img/base2.png" alt="base">
+         </div> 
+      </section>
+      <footer class="footerMenu">
+        <ul class="listaFooter">             
+              <li><a href=""><span class="sincronizar" onClick="sincronizar()"></span></a></li>
+              <li><a><span class="agregar"></span></a></li>
+              <li><a href="#menu"><span class="inicio"></span></a></li>
+        </ul>
+      </footer>
+    </div>
+</div><!--Cierra data role-->
+
+
+
+
+
+
+<div data-role="page" id="datosEquipo0">
+     <div id="contenedor">
+     <a href="" data-rel="back" id="back" ><img src="img/back.png"></a>
+      <header></header>
+      <section id="contenido" data-role="content">
+      
+         <form id="formDatosEquipo" method="post">
+           
+          <div data-role="fieldcontain">
+              <label for="equipoI">Tipo de Equipo:</label><br>
+              <select name="equipoI" class="equipoI" id="equipoI" onChange="cambioEquipo(this.value)">
+                    
+                  <option value="Bascula Electronica">Bascula Electrónica</option>
+                  <option value="Balanza Electronica">Balanza Electrónica</option>
+                  <option value="Balanza Analitica">Balanza Analítica</option>
+                  <option value="Balanza Mecanica">Balanza Mecánica</option>
+                  <option value="Balanza Det Humedad">Balanza Det Humedad</option>
+                  <option value="Bascula Mecanica">Bascula Mecánica</option>
+                  <option value="Bascula Electromecánica">Bascula Electromecánica</option>
+                  <option value="Dinamometro">Dinamómetro</option>
+                  <option value="Bascula Electronica(Riel)">Bascula Electrónica(Riel)</option>    
+                  <option value="Bascula Camionera Electronica">Bascula Camionera Electrónica</option>
+                  <option value="Bascula Camionera Electromecanica">Bascula Camionera Electromecánica</option>
+                  <option value="Bascula Camionera Mecanica">Bascula Camionera Mecanica</option>
+                  <option value="Bascula (Tipo tanque)">Bascula (Tipo tanque)</option>
+                  <option value="Bascula (Tipo tolva)">Bascula (Tipo tolva)</option>
+                  <option value="Bascula (Tipo silo)">Bascula (Tipo silo)</option>
+		      </select>
+              
+              <br><br>
+              <label for="nFabricante">Fabricante:</label><br>
+              <input type="text" name="nFabricante" class="nFabricante" placeholder="Fabricante" />
+              <br><br>
+              
+              <label for="modeloI">Modelo:</label><br>
+              <input type="text" name="modeloI" class="modeloI" placeholder="Modelo" />
+              <br><br>
+              
+              <label for="nSerieI">No Serie:</label><br>
+              <input type="text" name="nSerieI" class="nSerieI" placeholder="No. Serie" />
+              <br><br>
+              
+              <label for="codigoInternoI">Código Interno:</label><br>
+              <input type="text" name="codigoInternoI" class="codigoInternoI" placeholder="Codigo Interno" />
+              
+              <br><br>
+              <label for="ubicacionIs">Ubicación:</label><br>
+              <input type="text" name="ubicacionIs" id="ubicacionIs" placeholder="Ubicación"/>
+              <br><br>
+              <label for="nStickerIs">Numero de sticker:</label><br>
+              <input type="text" name="nStickerIs" id="nStickerIs" placeholder="Numero de sticker" />
+              
+              <br><br>
+              <label for="fecha">Fecha:</label><br>
+              <input type="date" placeholder="DD/MM/AA" id="fecha" name="fecha"> 
+              <br><br>
+              <label for="medidaI">Unidad de Medida:</label><br>
+              <select name="medidaI" class="medidaI" id="medidaI" onChange="cambioMedida(this)">
+                  <option value="kg">kg</option>
+                  <option value="µg">µg</option>
+                  <option value="mg">mg</option>
+                  <option value="g">g</option>
+                  <option value="t">t</option>                
+		      </select>
+              <br><br>
+              
+              <label for="decimalI">Numero de decimal:</label><br>
+              <select name="decimalI" class="decimalI" id="decimalI" onChange="cambioDecimal(this)">
+                 
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>                
+		      </select>
+              <br><br>
+              
+               <label for="medidaI">Range:</label><br>
+               <select name="rangeI" class="rangeI" id="rangeI" onChange="cambioRange(this.value)">
+                  <option value="single">Single</option>
+                  <option value="double">Double</option>
+                  <option value="triple">Triple</option>
+                                 
+		      </select>
+               
+               <br><br>
+             <div id="rangos">
+              <label for="capacidadI">Capacidad:<span class="medida" style="margin:0">(kg)</span></label>
+              <input type="number" name="capacidadI"  class="cap0" id="capacidadI" placeholder="Capacidad"/>
+              <input type="number" name="capacidadI" class="cap1" id="capacidadI" placeholder="Capacidad" style="display:none"/>
+              <input type="number" name="capacidadI" class="cap2" id="capacidadI" placeholder="Capacidad" style="display:none"/><br><br>
+              <label for="dI">d: <span class="medida">(kg)</span></label>
+              <input type="number" name="dI" id="dI" class="dI0"/>
+              <input type="number" name="dI" id="dI" class="dI1" style="display:none"/>
+              <input type="number" name="dI" id="dI" class="dI2" style="display:none"/><br><br>
+              <label for="eI">e: <span class="medida">(kg)</span></label>
+              <input type="number" name="eI" id="eI" class="eI0"/>
+              <input type="number" name="eI" id="eI" class="eI1" style="display:none" />
+              <input type="number" name="eI" id="eI" class="eI2" style="display:none"/>
+              </div>
+              <br><br>
+              <label for="tolerancias">Tolerancias Según:</label><br>
+              <select name="tolerancias" class="tolerancias" id="tolerancias" onChange="cambioTolerancias(this.value)">
+                  <option value="">escoger la tolerancia</option>
+                  <option value="OIMLR 76-1">OIMLR 76-1  v.2006</option>
+                  <!--<option value="Fabricante">Fabricante</option>   -->                   
+		      </select>
+              
+              <br><br>
+              <div id="cuadroClasificacion" style="display:none">
+                <h4>Clase:<span class="clase"></span></h4>
+                <h4 style="float:left">Capacidad Mínima &nbsp;<span class="medida" style="margin:0">(kg)</span>:</h4>
+                <input style="float:left" type="text" disabled id="capMinI"> 
+
+                <select style="float:left; margin-top:-15px !important" name="limpiezaGeneral" class="slider2" id="oi" data-role="slider" onChange="cambieCapMin(this.value)">
+                  <option value="OIMLR">OIMLR</option>
+                  <option value="Fabricante">Fabricante</option>
+		        </select>
+                
+      <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" style="float:left; width:50%; margin-top:30px;">        
+        <thead>
+          <tr>
+            <th data-priority="1" class="titleTable"></th>
+            <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Rango<span class="medida" style="margin:0">(kg)</span></th>
+            <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center"></th>
+            <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error máximo Permitido(EMP) <span class="medida" style="margin:0">(kg)</span></th>
+          </tr>
+        </thead>
+        <tbody class="listasrangos">
+        
+        <tr class="rl0"><th><input type='number' value='0' disabled class="cero"></th><td>≤ m ≤ </td><td><input type='text' class="r0" disabled value="0"></td><td><h4>&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span></h4></td></tr>
+        
+        <tr class="rl1"><th><input type='number' class="rn0" disabled value="0"></th><td>< m ≤ </td><td><input type='text' value="0" class="r1" disabled></td><td><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span> </h4></td></tr>
+        
+        <tr class="rl2"><th><input type='number' value="0" class="rn1" disabled></th><td>< m ≤ </td><td><input value="0" type='text' class="r2" disabled></td><td><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span></h4></td></tr>
+        
+        <tr class="rl3"><th><input value="0" type='number' class="rn2" disabled></th><td>< m ≤ </td><td><input value="0" type='text' class="r3" disabled></td><td><h4>&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span></h4></td></tr>
+        
+        <tr class="rl4"><th><input value="0" type='number' class="rn3" disabled></th><td>< m ≤ </td><td><input value="0" type='text' class="r4" disabled></td><td><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span> </h4></td></tr>
+        
+        <tr class="rl5"><th><input  value="0" type='number' class="rn4" disabled></th><td>< m ≤ </td><td><input value="0" type='text' class="r5" disabled></td><td><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span></h4></td></tr>
+        
+        <tr class="rl6"><th><input value="0" type='number' class="rn5" disabled></th><td>< m ≤ </td><td><input value="0" type='text' class="r6" disabled></td><td><h4>&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span></h4></td></tr>
+        
+        <tr class="rl7"><th><input value="0" type='number' class="rn6" disabled></th><td>< m ≤ </td><td><input value="0" type='text' class="r7" disabled></td><td><h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp; <span class="toleran"></span> </h4></td></tr>
+        
+               
+        </tbody>
+        
+    
+    </table>    
+              </div>
+              <div id="cuadroClasificacion2" style="display:none">
+              <br>
+                 <select id="claseI">
+                 <option value="">Elegir la clase</option>
+                  <option value="1">Clase I</option>
+                  <option value="2">Clase II</option>
+                  <option value="3">Clase III</option>
+                  <option value="4">Clase IIII</option> 
+                 </select>
+                 <br>
+                 <br>
+                 <label for="capMinEdit">Capacidad Mínima<span class="medida">(kg)</span></label>
+                 <input type="number" name="capMinEdit" id="capMinEdit" class="capMinEdit" />
+                 <br>
+                 <br>
+                 <label for="ds">DS<span class="medida">(kg)</span></label>
+                 <input type="text" name="ds" id="ds" class="ds" />
+                 <br>
+                 <br>
+                 <label for="dl">DL<span class="medida">(kg)</span></label>
+                 <input type="text" name="dl" id="dl" class="dl" />
+                 <br>
+                 <br>
+                 <label for="de">DE<span class="medida">(kg)</span></label>
+                 <input type="text" name="de" id="de" class="de" />
+                 
+              </div>
+              
+              
+              <select id="trazabilidad" onChange="trazabilidadF(this.value)">
+                  <option selected>Escoger Trazabilidad</option>
+                <!--BARRANQUILLA-->
+                  <option value="1">JPTB - 003</option>
+                  <option value="2">LPTB - 005</option>
+                  <option value="3">LPTB - 001</option>
+                  <option value="4">LPTB - 002</option>
+                  <option value="5">LPTB - 003</option>
+                  <option value="33">LPTB - 004</option>
+                  <option value="26">JPTB - 005</option>
+                  
+                  
+                  <!--CARTAGENA-->
+                  <option value="6">JPTC - 004</option>
+                  <option value="7">JPTC - 005</option>
+                  <option value="8">LPTC - 005</option>
+                  <option value="9">LPTC - 006</option>
+                  <option value="10">PIC - 004</option>
+                  <option value="31">JPTC 006</option>
+                  <option value="32">JPTC 007</option>
+                  <option value="34">LPTC - 007</option>
+                  
+                  
+ 				  <!--MEDELLIN-->
+				  <option value="11">JPTM - 001</option>    
+                  <option value="12">JPTM - 002</option>
+                  <option value="13">JPTM - 007</option>
+                  <option value="14">PIM - 001</option>    
+                  <option value="15">PIM - 002</option>
+                  <option value="16">LPTM - 002</option>
+                  <option value="17">LPTM - 003</option>    
+                  <option value="18">LPTM - 004</option>
+                  <option value="35">LPTM - 005</option>
+                  <option value="27">JPTM - 003</option>
+                  <option value="28">JPTM - 004</option>
+                  
+                  
+                  <!--CALI-->
+                  <option value="19">JPTCA - 006</option>
+                  <option value="36">JPTCA - 007 </option>
+                  <option value="37">JPTCA - 008</option>
+                  <option value="20">LPTCA - 001</option>
+                  <option value="21">LPTCA - 002</option>
+                  <option value="22">LPTCA - 004</option>
+                  
+
+                  <!--BOGOTÁ-->
+                  <option value="23">JPTBO - 001</option>
+                  <option value="24">JPTBO - 002</option>
+                  <option value="29">JPTBO - 003</option>
+                  <option value="30">JPTBO - 004</option>
+                  <option value="38">JPTBO - 005</option>
+                  <option value="39">JPTBO - 006</option> 
+                  <option value="25">LPTM - 002</option>
+               
+              </select>
+              
+              <div class="mas">
+                 <a data-role="button" onClick="agregarTrazabilidad()">+</a>
+              </div>
+              
+              <div id="descripciones" style="clear:both;text-align:center;margin:30px 0">
+               
+              </div>
+             <!-- <label for="nStikerI">No Stiker:</label><br>
+              <input type="text" name="nStikerI" class="nStikerI" placeholder="No Sticker"/>
+              <br><br>
+              -->
+              <button onClick="guardarEquipo()">Guardar</button>
+              
+           </div>
+         </form>     
+       <div id="separador"></div>  
+      </section>
+      <footer class="footerMenu">
+        <ul class="listaFooter">
+              <li><a href="#equiposRealizar"><span class="meu"></span></a></li>
+              <!--<li><a href=""><span class="sincronizar"></span></a></li>-->
+              <li onClick="borrar()"><a><span class="eliminar"></span></a></li>
+              <!--<li><a href=""><span class="salir"></span></a></li>-->
+        </ul>
+      </footer>
+    </div>
+</div><!--Cierra data role-->
+
+<div data-role="page" id="informe0">
+  <header>
+  </header>
+  <div data-role="content">
+  <a href="" data-rel="back" id="back"><img src="img/back.png"></a>
+  <h3 style="color:#F33C3C">1.) Verificación Inicial</h3>
+  <hr>
+  <div id="verificarExc">
+     <h2>Excentricidad</h2>
+     <textarea class="excentricidad"></textarea>
+   </div> 
+   <div id="verificarExac">
+     <h2>Exactitud</h2>
+     <textarea class="exactitud"></textarea>
+   </div>
+  
+ 
+  <h3 style="color:#F33C3C">2.) Inspección General</h3>
+<!--Basculas mecanicas-->  
+<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke tablaVerificar basculaMecanica">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">COMPONENTES</th>
+              <th data-priority="1" class="titleTable">ESTADO</th>
+            </tr>
+          </thead>
+          <tbody class="listasEquipos componente0">
+          
+          <tr>     
+              <th data-priority="1" class="titleTable componentes">a.)Platinas</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-a" id="radio-choice-1" value="N.A"/>
+							<label for="radio-choice-1">N.A</label>
+							<input type="radio" name="radio-choice-a" id="radio-choice-2" value="N.P" />
+							<label for="radio-choice-2">N.P</label>
+							<input type="radio" name="radio-choice-a" id="radio-choice-3" value="B" />
+							<label for="radio-choice-3">B</label>
+                            <input type="radio" name="radio-choice-a" id="radio-choice-4" value="D" />
+							<label for="radio-choice-4">D</label>
+                            <input type="radio" name="radio-choice-a" id="radio-choice-5" value="R" />
+							<label for="radio-choice-5">R</label>
+                            <input type="radio" name="radio-choice-a" id="radio-choice-6" value="N.V" />
+							<label for="radio-choice-6">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">b.) Estructura</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-b" id="radio-choice-1b" value="N.A" />
+							<label for="radio-choice-1b">N.A</label>
+							<input type="radio" name="radio-choice-b" id="radio-choice-2b" value="N.P" />
+							<label for="radio-choice-2b">N.P</label>
+							<input type="radio" name="radio-choice-b" id="radio-choice-3b" value="B" />
+							<label for="radio-choice-3b">B</label>
+                            <input type="radio" name="radio-choice-b" id="radio-choice-4b" value="D" />
+							<label for="radio-choice-4b">D</label>
+                            <input type="radio" name="radio-choice-b" id="radio-choice-5b" value="R" />
+							<label for="radio-choice-5b">R</label>
+                            <input type="radio" name="radio-choice-b" id="radio-choice-6b" value="N.V" />
+							<label for="radio-choice-6b">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">c.) Topes</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-c" id="radio-choice-1c" value="N.A" />
+							<label for="radio-choice-1c">N.A</label>
+							<input type="radio" name="radio-choice-c" id="radio-choice-2c" value="N.P" />
+							<label for="radio-choice-2c">N.P</label>
+							<input type="radio" name="radio-choice-c" id="radio-choice-3c" value="B" />
+							<label for="radio-choice-3c">B</label>
+                            <input type="radio" name="radio-choice-c" id="radio-choice-4c" value="D" />
+							<label for="radio-choice-4c">D</label>
+                            <input type="radio" name="radio-choice-c" id="radio-choice-5c" value="R" />
+							<label for="radio-choice-5c">R</label>
+                            <input type="radio" name="radio-choice-c" id="radio-choice-6c" value="N.V" />
+							<label for="radio-choice-6c">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">d.) Tapa o  bandeja</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-d" id="radio-choice-1d" value="N.A" />
+							<label for="radio-choice-1d">N.A</label>
+							<input type="radio" name="radio-choice-d" id="radio-choice-2d" value="N.P" />
+							<label for="radio-choice-2d">N.P</label>
+							<input type="radio" name="radio-choice-d" id="radio-choice-3d" value="B" />
+							<label for="radio-choice-3d">B</label>
+                            <input type="radio" name="radio-choice-d" id="radio-choice-4d" value="D" />
+							<label for="radio-choice-4d">D</label>
+                            <input type="radio" name="radio-choice-d" id="radio-choice-5d" value="R" />
+							<label for="radio-choice-5d">R</label>
+                            <input type="radio" name="radio-choice-d" id="radio-choice-6d" value="N.V" />
+							<label for="radio-choice-6d">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">e.)Patas escualizables o fijas</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-e" id="radio-choice-1e" value="N.A" />
+							<label for="radio-choice-1e">N.A</label>
+							<input type="radio" name="radio-choice-e" id="radio-choice-2e" value="N.P" />
+							<label for="radio-choice-2e">N.P</label>
+							<input type="radio" name="radio-choice-e" id="radio-choice-3e" value="B" />
+							<label for="radio-choice-3e">B</label>
+                            <input type="radio" name="radio-choice-e" id="radio-choice-4e" value="D" />
+							<label for="radio-choice-4e">D</label>
+                            <input type="radio" name="radio-choice-e" id="radio-choice-5e" value="R" />
+							<label for="radio-choice-5e">R</label>
+                            <input type="radio" name="radio-choice-e" id="radio-choice-6e" value="N.V" />
+							<label for="radio-choice-6e">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">f.) Tornillería</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-f" id="radio-choice-1f" value="N.A"  />
+							<label for="radio-choice-1f">N.A</label>
+							<input type="radio" name="radio-choice-f" id="radio-choice-2f" value="N.P" />
+							<label for="radio-choice-2f">N.P</label>
+							<input type="radio" name="radio-choice-f" id="radio-choice-3f" value="B" />
+							<label for="radio-choice-3f">B</label>
+                            <input type="radio" name="radio-choice-f" id="radio-choice-4f" value="D" />
+							<label for="radio-choice-4f">D</label>
+                            <input type="radio" name="radio-choice-f" id="radio-choice-5f" value="R" />
+							<label for="radio-choice-5f">R</label>
+                            <input type="radio" name="radio-choice-f" id="radio-choice-6f" value="N.V" />
+							<label for="radio-choice-6f">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">g.) Calzas</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-g" id="radio-choice-1g" value="N.A" />
+							<label for="radio-choice-1g">N.A</label>
+							<input type="radio" name="radio-choice-g" id="radio-choice-2g" value="N.P" />
+							<label for="radio-choice-2g">N.P</label>
+							<input type="radio" name="radio-choice-g" id="radio-choice-3g" value="B" />
+							<label for="radio-choice-3g">B</label>
+                            <input type="radio" name="radio-choice-g" id="radio-choice-4g" value="D" />
+							<label for="radio-choice-4g">D</label>
+                            <input type="radio" name="radio-choice-g" id="radio-choice-5g" value="R" />
+							<label for="radio-choice-5g">R</label>
+                            <input type="radio" name="radio-choice-g" id="radio-choice-6g" value="N.V" />
+							<label for="radio-choice-6g">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">a.) Tarjeta principal</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-h" id="radio-choice-1h" value="N.A"/>
+							<label for="radio-choice-1h">N.A</label>
+							<input type="radio" name="radio-choice-h" id="radio-choice-2h" value="N.P" />
+							<label for="radio-choice-2h">N.P</label>
+							<input type="radio" name="radio-choice-h" id="radio-choice-3h" value="B" />
+							<label for="radio-choice-3h">B</label>
+                            <input type="radio" name="radio-choice-h" id="radio-choice-4h" value="D" />
+							<label for="radio-choice-4h">D</label>
+                            <input type="radio" name="radio-choice-h" id="radio-choice-5h" value="R" />
+							<label for="radio-choice-5h">R</label>
+                            <input type="radio" name="radio-choice-h" id="radio-choice-6h" value="N.V" />
+							<label for="radio-choice-6h">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">b.) Display</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-i" id="radio-choice-1i" value="N.A" />
+							<label for="radio-choice-1i">N.A</label>
+							<input type="radio" name="radio-choice-i" id="radio-choice-2i" value="N.P" />
+							<label for="radio-choice-2i">N.P</label>
+							<input type="radio" name="radio-choice-i" id="radio-choice-3i" value="B" />
+							<label for="radio-choice-3i">B</label>
+                            <input type="radio" name="radio-choice-i" id="radio-choice-4i" value="D" />
+							<label for="radio-choice-4i">D</label>
+                            <input type="radio" name="radio-choice-i" id="radio-choice-5i" value="R" />
+							<label for="radio-choice-5i">R</label>
+                            <input type="radio" name="radio-choice-i" id="radio-choice-6i" value="N.V" />
+							<label for="radio-choice-6i">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">c.) Teclado</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-j" id="radio-choice-1j" value="N.A" />
+							<label for="radio-choice-1j">N.A</label>
+							<input type="radio" name="radio-choice-j" id="radio-choice-2j" value="N.P" />
+							<label for="radio-choice-2j">N.P</label>
+							<input type="radio" name="radio-choice-j" id="radio-choice-3j" value="B" />
+							<label for="radio-choice-3j">B</label>
+                            <input type="radio" name="radio-choice-j" id="radio-choice-4j" value="D" />
+							<label for="radio-choice-4j">D</label>
+                            <input type="radio" name="radio-choice-j" id="radio-choice-5j" value="R" />
+							<label for="radio-choice-5j">R</label>
+                            <input type="radio" name="radio-choice-j" id="radio-choice-6j" value="N.V" />
+							<label for="radio-choice-6j">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">d.) Carcaza o tapas</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-k" id="radio-choice-1k" value="N.A"/>
+							<label for="radio-choice-1k">N.A</label>
+							<input type="radio" name="radio-choice-k" id="radio-choice-2k" value="N.P" />
+							<label for="radio-choice-2k">N.P</label>
+							<input type="radio" name="radio-choice-k" id="radio-choice-3k" value="B" />
+							<label for="radio-choice-3k">B</label>
+                            <input type="radio" name="radio-choice-k" id="radio-choice-4k" value="D" />
+							<label for="radio-choice-4k">D</label>
+                            <input type="radio" name="radio-choice-k" id="radio-choice-5k" value="R" />
+							<label for="radio-choice-5k">R</label>
+                            <input type="radio" name="radio-choice-k" id="radio-choice-6k" value="N.V" />
+							<label for="radio-choice-6k">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">e.) Prensa estopas</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-l" id="radio-choice-1l" value="N.A"  />
+							<label for="radio-choice-1l">N.A</label>
+							<input type="radio" name="radio-choice-l" id="radio-choice-2l" value="N.P" />
+							<label for="radio-choice-2l">N.P</label>
+							<input type="radio" name="radio-choice-l" id="radio-choice-3l" value="B" />
+							<label for="radio-choice-3l">B</label>
+                            <input type="radio" name="radio-choice-l" id="radio-choice-4l" value="D" />
+							<label for="radio-choice-4l">D</label>
+                            <input type="radio" name="radio-choice-l" id="radio-choice-5l" value="R" />
+							<label for="radio-choice-5l">R</label>
+                            <input type="radio" name="radio-choice-1" id="radio-choice-6" value="N.V" />
+							<label for="radio-choice-6">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">f.)  Adaptador/Cable</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-m" id="radio-choice-1m" value="N.A"/>
+							<label for="radio-choice-1m">N.A</label>
+							<input type="radio" name="radio-choice-m" id="radio-choice-2m" value="N.P" />
+							<label for="radio-choice-2m">N.P</label>
+							<input type="radio" name="radio-choice-m" id="radio-choice-3m" value="B" />
+							<label for="radio-choice-3m">B</label>
+                            <input type="radio" name="radio-choice-m" id="radio-choice-4m" value="D" />
+							<label for="radio-choice-4m">D</label>
+                            <input type="radio" name="radio-choice-m" id="radio-choice-5m" value="R" />
+							<label for="radio-choice-5m">R</label>
+                            <input type="radio" name="radio-choice-m" id="radio-choice-6m" value="N.V" />
+							<label for="radio-choice-6m">N.V</label>
+				  </fieldset>
+              </th>
+            </tr> 
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">a.)Cable(s) de celda(s)</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-n" id="radio-choice-1n" value="N.A"/>
+							<label for="radio-choice-1n">N.A</label>
+							<input type="radio" name="radio-choice-n" id="radio-choice-2n" value="N.P" />
+							<label for="radio-choice-2n">N.P</label>
+							<input type="radio" name="radio-choice-n" id="radio-choice-3n" value="B" />
+							<label for="radio-choice-3n">B</label>
+                            <input type="radio" name="radio-choice-n" id="radio-choice-4n" value="D" />
+							<label for="radio-choice-4n">D</label>
+                            <input type="radio" name="radio-choice-n" id="radio-choice-5n" value="R" />
+							<label for="radio-choice-5n">R</label>
+                            <input type="radio" name="radio-choice-n" id="radio-choice-6n" value="N.V" />
+							<label for="radio-choice-6n">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">b.) Caja de juntas</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-ene" id="radio-choice-1ene" value="N.A"/>
+							<label for="radio-choice-1ene">N.A</label>
+							<input type="radio" name="radio-choice-ene" id="radio-choice-2ene" value="N.P" />
+							<label for="radio-choice-2ene">N.P</label>
+							<input type="radio" name="radio-choice-ene" id="radio-choice-3ene" value="B" />
+							<label for="radio-choice-3ene">B</label>
+                            <input type="radio" name="radio-choice-ene" id="radio-choice-4ene" value="D" />
+							<label for="radio-choice-4ene">D</label>
+                            <input type="radio" name="radio-choice-ene" id="radio-choice-5ene" value="R" />
+							<label for="radio-choice-5ene">R</label>
+                            <input type="radio" name="radio-choice-ene" id="radio-choice-6ene" value="N.V" />
+							<label for="radio-choice-6ene">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">c.) Tarjeta Sumatoria</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-o" id="radio-choice-1o" value="N.A"/>
+							<label for="radio-choice-1o">N.A</label>
+							<input type="radio" name="radio-choice-o" id="radio-choice-2o" value="N.P" />
+							<label for="radio-choice-2o">N.P</label>
+							<input type="radio" name="radio-choice-o" id="radio-choice-3o" value="B" />
+							<label for="radio-choice-3o">B</label>
+                            <input type="radio" name="radio-choice-o" id="radio-choice-4o" value="D" />
+							<label for="radio-choice-4o">D</label>
+                            <input type="radio" name="radio-choice-o" id="radio-choice-5o" value="R" />
+							<label for="radio-choice-5o">R</label>
+                            <input type="radio" name="radio-choice-o" id="radio-choice-6o" value="N.V" />
+							<label for="radio-choice-6o">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">d.) Foso</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-p" id="radio-choice-1p" value="N.A"/>
+							<label for="radio-choice-1p">N.A</label>
+							<input type="radio" name="radio-choice-p" id="radio-choice-2p" value="N.P" />
+							<label for="radio-choice-2p">N.P</label>
+							<input type="radio" name="radio-choice-p" id="radio-choice-3p" value="B" />
+							<label for="radio-choice-3p">B</label>
+                            <input type="radio" name="radio-choice-p" id="radio-choice-4p" value="D" />
+							<label for="radio-choice-4p">D</label>
+                            <input type="radio" name="radio-choice-p" id="radio-choice-5p" value="R" />
+							<label for="radio-choice-5p">R</label>
+                            <input type="radio" name="radio-choice-p" id="radio-choice-6p" value="N.V" />
+							<label for="radio-choice-6p">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">e.) Pintura</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-q" id="radio-choice-1q" value="N.A"/>
+							<label for="radio-choice-1q">N.A</label>
+							<input type="radio" name="radio-choice-q" id="radio-choice-2q" value="N.P" />
+							<label for="radio-choice-2q">N.P</label>
+							<input type="radio" name="radio-choice-q" id="radio-choice-3q" value="B" />
+							<label for="radio-choice-3q">B</label>
+                            <input type="radio" name="radio-choice-q" id="radio-choice-4q" value="D" />
+							<label for="radio-choice-4q">D</label>
+                            <input type="radio" name="radio-choice-q" id="radio-choice-5q" value="R" />
+							<label for="radio-choice-5q">R</label>
+                            <input type="radio" name="radio-choice-q" id="radio-choice-6q" value="N.V" />
+							<label for="radio-choice-6q">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes">f.) Batería</th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-r" id="radio-choice-1r" value="N.A"/>
+							<label for="radio-choice-1r">N.A</label>
+							<input type="radio" name="radio-choice-r" id="radio-choice-2r" value="N.P" />
+							<label for="radio-choice-2r">N.P</label>
+							<input type="radio" name="radio-choice-r" id="radio-choice-3r" value="B" />
+							<label for="radio-choice-3r">B</label>
+                            <input type="radio" name="radio-choice-r" id="radio-choice-4r" value="D" />
+							<label for="radio-choice-4r">D</label>
+                            <input type="radio" name="radio-choice-r" id="radio-choice-5r" value="R" />
+							<label for="radio-choice-5r">R</label>
+                            <input type="radio" name="radio-choice-r" id="radio-choice-6r" value="N.V" />
+							<label for="radio-choice-6r">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+            <tr>     
+              <th data-priority="1" class="titleTable componentes"></th>
+              <th data-priority="1" class="titleTable">
+                  <fieldset data-role="controlgroup" data-type="horizontal">
+							
+							<input type="radio" name="radio-choice-s" id="radio-choice-1s" value="N.A" />
+							<label for="radio-choice-1s">N.A</label>
+							<input type="radio" name="radio-choice-s" id="radio-choice-2s" value="N.P" />
+							<label for="radio-choice-2s">N.P</label>
+							<input type="radio" name="radio-choice-s" id="radio-choice-3s" value="B" />
+							<label for="radio-choice-3s">B</label>
+                            <input type="radio" name="radio-choice-s" id="radio-choice-4s" value="D" />
+							<label for="radio-choice-4s">D</label>
+                            <input type="radio" name="radio-choice-s" id="radio-choice-5s" value="R" />
+							<label for="radio-choice-5s">R</label>
+                            <input type="radio" name="radio-choice-s" id="radio-choice-6s" value="N.V" />
+							<label for="radio-choice-6s">N.V</label>
+				  </fieldset>
+              </th>
+            </tr>
+            
+          
+          </tbody>
+      
+ </table>
+ <div style="width:100%; margin:10px auto 0 auto; clear:both;">
+        <button data-theme="b" value="Generar Tabla De resistencias" onClick="generarTablaResistencias()"></button>
+ </div>
+<div id="cuadroNoMecanico">
+<h3 style="color:#F33C3C; clear:both">3.) Mediciones Eléctricas</h3>
+<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke " style="float:left; width:50%">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">Voltaje de Alimentación</th>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable"></th>
+            </tr>
+          </thead>    
+          <tbody>
+            <tr>
+              <th data-priority="1">V<sub> fase-Neutro</sub></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="neutro" ></th>
+              <th data-priority="1" class="titleTable">Vac</th>
+            </tr>
+            <tr>
+              <th data-priority="1">V <sub> fase-Tierra</sub></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="ftierra" ></th>
+              <th data-priority="1" class="titleTable">Vac</th>
+            </tr>
+            <tr>
+              <th data-priority="1">V <sub> fase-Neutro Tierra</sub></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="neutroTierra" ></th>
+              <th data-priority="1" class="titleTable">Vac</th>
+            </tr>
+            
+          </tbody>
+      
+      </table> 
+      <div style="clear:both"></div>   
+  <div id="nodinamometro">
+  <div style="clear:both"></div>
+  
+  <div id="cajaJuntas">
+    <h2>Caja de Juntas</h2>
+    <div style="width:30%; float:left; margin-right:50px;">
+    
+            <label for="cajaMarca">Marca:</label>
+            <input type="text" name="cajaMarca" id="cajaMarca">
+    </div>
+    
+    <div style="width:30%; float:left">
+    
+            <label for="cajaModelo">Modelo:</label>
+            <input type="text" name="cajaModelo" id="cajaModelo">
+    </div>
+    <div style="clear:both"></div>
+    <div style="width:30%; float:left; margin-right:50px;">
+             <label for="cajaAjustePor">Ajueste por</label> 
+             <select id="cajaAjustePor">
+                 
+                    <option value="Solo por apoyos">Solo por apoyos</option>
+                    <option value="Solo por secciones">Solo por secciones</option>
+                    <option value="Apoyos y secciones">Apoyos y secciones</option>
+                    
+            </select>
+    </div>
+    
+    <div style="width:30%; float:left">
+            <label for="cajaTecnologia">Tecnología</label>
+            <select id="cajaTecnologia">
+                 
+                    <option value="Análoga">Análoga</option>
+                    <option value="Híbrida">Híbrida</option>
+                    <option value="Digital">Digital</option>
+                    
+            </select>
+    </div>
+    <div style="clear:both"></div>
+   
+   <hr>
+  </div><!--CIERRA CAJA JUNTAS-->
+  
+   <div style="width:20%; margin-top:50px">
+    <label for="numCeldas">Numero de Celdas:</label>
+    <input type="number" name="numCeldas" id="numCeldas" onBlur="numCeldas(this.value)">
+  </div> 
+  
+  
+  <!--<div class="clickMe">clickme</div>-->
+  <div id="celdUno">
+  <div style="width:20%;margin-top:30px" class="desaparece1">
+    <label for="numCables">Numero de Cables por Celdas:</label>
+    <select name="numCables" id="numCables" onChange="numCables(this.value)">
+       <option>Numero de cables</option>
+       <option value="5">5</option>
+       <option value="7">7</option>
+    </select>
+  </div>
+  <div style="clear:both"></div>
+  <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke tablasColores" style="width:50%;display:none; margin-bottom:30px">
+           <tbody class="tablaColores">
+            <thead>
+            <tr>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable">Codigo de Colores</th>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable">Inicial</th>
+            </tr>
+          </thead> 
+          
+            <tr>
+              <th data-priority="1" class="titleTable">+ Excitación</th>
+              <th data-priority="1" class="titleTable">
+                 <select id="excitacionMas" onChange="ponerColor(0,this.value)">
+                 
+                    <option value="#ff0000">Rojo</option>
+                    <option value="#000000">Negro</option>
+                    <option value="#008000">Verde</option>
+                    <option value="#ffffff">Blanco</option>
+                    <option value="desnudo">Pelado</option>
+                    <option value="#1e90ff">Azul</option>
+                    <option value="#a0522d">Cafe</option>
+                    <option value="#ff69b4">Rosado</option>
+                    <option value="#ff8c00">Naranjado</option>
+                    <option value="#ffd700">Amarillo</option>
+                    <option value="#c0c0c0">Gris</option>
+                    <option value="#800080">Morado</option>
+                    
+                 </select>
+                 
+              </th>
+              <th><div class="color" style="background:#ff0000"></div></th>
+              <th data-priority="1" class="titleTable inicialColor"></th>
+            </tr>
+            <tr>
+              <th data-priority="1" class="titleTable">-Excitacion</th>
+              <th data-priority="1" class="titleTable">
+              <select id="excitacionMenos" onChange="ponerColor(1,this.value)">
+                    <option value="#000000">Negro</option> 
+                    <option value="#ff0000">Rojo</option>
+                    <option value="#008000">Verde</option>
+                    <option value="#ffffff">Blanco</option>
+                    <option value="desnudo">Pelado</option>
+                    <option value="#1e90ff">Azul</option>
+                    <option value="#a0522d">Cafe</option>
+                    <option value="#ff69b4">Rosado</option>
+                    <option value="#ff8c00">Naranjado</option>
+                    <option value="#ffd700">Amarillo</option>
+                    <option value="#c0c0c0">Gris</option>
+                    <option value="#800080">Morado</option>
+                 </select>
+              </th>
+              <th><div class="color" style="background:#000000"></div></th>
+              <th data-priority="1" class="titleTable inicialColor"></th>
+            </tr>
+            <tr>
+              <th data-priority="1" class="titleTable">+Señal</th>
+              <th data-priority="1" class="titleTable">
+              <select id="senalMas" onChange="ponerColor(2,this.value)">
+                    <option value="#008000">Verde</option>
+                    <option value="#000000">Negro</option>
+                    <option value="#ff0000">Rojo</option>
+                    <option value="#ffffff">Blanco</option>
+                    <option value="desnudo">Pelado</option>
+                    <option value="#1e90ff">Azul</option>
+                    <option value="#a0522d">Cafe</option>
+                    <option value="#ff69b4">Rosado</option>
+                    <option value="#ff8c00">Naranjado</option>
+                    <option value="#ffd700">Amarillo</option>
+                    <option value="#c0c0c0">Gris</option>
+                    <option value="#800080">Morado</option>
+                 </select>
+               </th>
+               <th><div class="color" style="background:#008000"></div></th>
+               <th data-priority="1" class="titleTable inicialColor"></th>
+            </tr>
+            
+            <tr>
+              <th data-priority="1" class="titleTable">-Señal</th>
+              <th data-priority="1" class="titleTable">
+              <select id="senalMenos" onChange="ponerColor(3,this.value)">
+                    <option value="#ffffff">Blanco</option> 
+                    <option value="#ff0000">Rojo</option>
+                    <option value="#000000">Negro</option>
+                    <option value="#008000">Verde</option>
+                    <option value="desnudo">Pelado</option>
+                    <option value="#1e90ff">Azul</option>
+                    <option value="#a0522d">Cafe</option>
+                    <option value="#ff69b4">Rosado</option>
+                    <option value="#ff8c00">Naranjado</option>
+                    <option value="#ffd700">Amarillo</option>
+                    <option value="#c0c0c0">Gris</option>
+                    <option value="#800080">Morado</option>
+                 </select>
+               </th>
+               <th><div class="color" style="background:#ffffff"></div></th>
+               <th data-priority="1" class="titleTable inicialColor"></th>
+            </tr>
+            
+            <tr>
+              <th data-priority="1" class="titleTable">Tierra</th>
+              <th data-priority="1" class="titleTable">
+              <select id="tierra" onChange="ponerColor(4,this.value)">
+                      
+                    <option value="desnudo">Pelado</option>  
+                    <option value="#ff0000">Rojo</option>
+                    <option value="#000000">Negro</option>
+                    <option value="#008000">Verde</option>
+                    <option value="#ffffff">Blanco</option>
+                    <option value="#a0522d">Cafe</option>
+                    <option value="#ff69b4">Rosado</option>
+                    <option value="#ff8c00">Naranjado</option>
+                    <option value="#ffd700">Amarillo</option>
+                    <option value="#c0c0c0">Gris</option>
+                    <option value="#800080">Morado</option>
+                 </select>
+               </th>
+               <th><div class="color"><h1 style='text-align:center;margin:1px'>*</h1></div></th>
+               <th data-priority="1" class="titleTable inicialColor"></th>
+            </tr>
+            
+            <tr class="noMuestra">
+              <th data-priority="1" class="titleTable">+Sense</th>
+              <th data-priority="1" class="titleTable">
+                <select id="senseMas" onChange="ponerColor(5,this.value)">
+                    <option value="#1e90ff">Azul</option>
+                    <option value="#ff0000">Rojo</option>
+                    <option value="#000000">Negro</option>
+                    <option value="#008000">Verde</option>
+                    <option value="#ffffff">Blanco</option>
+                    <option value="desnudo">Pelado</option>      
+                    <option value="#a0522d">Cafe</option>
+                    <option value="#ff69b4">Rosado</option>
+                    <option value="#ff8c00">Naranjado</option>
+                    <option value="#ffd700">Amarillo</option>
+                    <option value="#c0c0c0">Gris</option>
+                    <option value="#800080">Morado</option>
+                 </select>
+              </th>
+              <th><div class="color" style="background:#1e90ff"></div></th>
+              <th data-priority="1" class="titleTable inicialColor"></th>
+            </tr>
+            
+            <tr class="noMuestra">
+              <th data-priority="1" class="titleTable">-Sense</th>
+              <th data-priority="1" class="titleTable">
+              <select id="senseMenos" onChange="ponerColor(6,this.value)">
+                    <option value="#a0522d">Cafe</option>  
+                    <option value="#ff0000">Rojo</option>
+                    <option value="#000000">Negro</option>
+                    <option value="#008000">Verde</option>
+                    <option value="#ffffff">Blanco</option>
+                    <option value="desnudo">Pelado</option>
+                    <option value="#1e90ff">Azul</option>
+                    <option value="#ff69b4">Rosado</option>
+                    <option value="#ff8c00">Naranjado</option>
+                    <option value="#ffd700">Amarillo</option>
+                    <option value="#c0c0c0">Gris</option>
+                    <option value="#800080">Morado</option>
+              </select>
+              </th>
+              <th><div class="color" style="background:#a0522d"></div></th>
+              <th data-priority="1" class="titleTable inicialColor"></th>
+            </tr>
+            
+           
+          </tbody>
+      
+      </table>
+      <div style="width:30%; margin:10px auto 0 auto; clear:both;" class="desaparece1">
+        <button value="Generar Tabla" onClick="generarTabla()" id="generarTabla"></button>
+      </div>
+      <div id="tarjetaSumatoria">
+        <h2>Tarjeta Sumatoria</h2>
+        <br>
+        <div style="width:30%; float:left">
+            <label for="volAlimentacion">Voltaje de Alimentación:</label>
+            <input type="number" name="volAlimentacion" id="volAlimentacion">
+        </div>
+        <h4 class="titleTable" style="float:left;margin: 50px 0 0 10px;">DC</h4>
+        <div style="clear:both"></div>
+        <br>
+        <div style="width:30%;float:left">
+            <label for="volSalida">Voltaje de Salida:</label>
+            <input type="number" name="volSalida" id="volSalida">
+        </div>
+        <h4 class="titleTable" style="float:left;margin: 50px 0 0 10px;">mV</h4>
+        <div style="clear:both"></div>
+      </div>
+      <div id="titulosCombinacion">
+         <div class="titulo1" ><p>Medida = Ω<p></div>
+         <div class="titulo2" ><p>Medida en =mV</p></div>
+      </div>
+      <table data-role="table" id="movie-table2" data-mode="reflow" class="ui-responsive table-stroke " style="width:50%">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">Combinación</th>
+              <th data-priority="1" class="titleTable">&nbsp; &nbsp; &nbsp;</th>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable">&nbsp; &nbsp; &nbsp;</th>
+              <th data-priority="1" class="titleTable">&nbsp; &nbsp; &nbsp;</th>
+              <th data-priority="1" class="titleTable">&nbsp; &nbsp; &nbsp;</th>
+              <th data-priority="1" class="titleTable noMuestra2">&nbsp; &nbsp; &nbsp;</th>
+              <th data-priority="1" class="titleTable noMuestra">&nbsp; &nbsp; &nbsp;</th>
+            </tr>
+          </thead>    
+          <tbody class="ricelake">
+            <tr id="numeracion">
+              <th data-priority="1" class="titleTable "></th> 
+              
+              
+            </tr>
+          </tbody>
+          <tbody>
+             
+             <tr id="inicia1">
+              <th data-priority="1" class="titleTable combinacion"></th> 
+              
+            </tr>
+            
+            <tr id="inicia2">
+              <th data-priority="1" class="titleTable combinacion"></th> 
+              
+            </tr>
+            
+            <tr id="inicia3">
+              <th data-priority="1" class="titleTable combinacion"></th> 
+              
+            </tr>
+            
+            <tr id="inicia4">
+              <th data-priority="1" class="titleTable combinacion"></th> 
+              
+            </tr>
+            
+            <tr id="inicia5">
+              <th data-priority="1" class="titleTable combinacion"></th> 
+              
+            </tr>
+          
+            <tr id="inicia6">
+              <th data-priority="1" class="titleTable combinacion"></th> 
+              
+            </tr>
+            
+            <tr id="vcm">
+              <th data-priority="1" class="titleTable ">Voltaje con carga muerta</th> 
+              
+            </tr>
+            
+            <tr id="vav">
+              <th data-priority="1" class="titleTable">Voltaje al vacio</th> 
+             
+            </tr>
+            
+            <tr id="dv">
+              <th data-priority="1" class="titleTable">△ Vol</th> 
+             
+              
+            </tr>
+          </tbody>
+          
+          
+      </table>
+      
+  </div>
+  
+  </div><!--No dinamometro cierra-->
+  </div>
+  
+  <form id="formInforme">
+  
+  <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">
+    <thead>
+      <tr>
+        <th data-priority="1" class="titleTable">Trabajos Realizados</th>
+        <th data-priority="1" class="titleTable"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>1.) verificación Inicial</th>
+        <td>
+        <select name="verificacionInicial" class="slider2" id="vi" data-role="slider">        
+          <option value="no">No</option>
+          <option value="si">Si</option>
+		</select>
+        </td>
+            
+      </tr>
+      
+      <tr>
+      <th>2.) Revisión general</th>
+        <td>
+        <select name="revisionGeneral" class="slider2" id="rg" data-role="slider">
+          <option value="no">No</option>
+          <option value="si">Si</option>
+		</select>
+        </td>
+      </tr>
+
+      <tr>
+      <th>3.) Limpieza general</th>
+        <td>
+        <select name="limpiezaGeneral" class="slider2" id="lg" data-role="slider">
+            <option value="no">No</option>
+            <option value="si">Si</option> 
+		</select>
+        </td>
+      </tr>
+      
+      
+      <tr>
+      <th>4.) Ajuste Excentricidad de carga &nbsp;&nbsp;&nbsp;</th>
+        <td>
+        <select name="ajusteExcentricidad" class="slider2" id="aec" data-role="slider">
+            <option value="no">No</option>
+            <option value="si">Si</option>
+		</select>
+        </td>
+      </tr>
+      
+      <tr>
+      <th>5.) Programacion indicador</th>
+        <td>
+        <select name="programacionIndicador" class="slider2" id="pi" data-role="slider">
+            <option value="no">No</option>
+            <option value="si">Si</option>
+		</select>
+        </td>
+      </tr>
+      
+      <tr>
+      <th>6.) Ajuste de punto cero</th>
+        <td>
+        <select name="ajustePuntoCero" class="slider2" id="apc" data-role="slider">
+            <option value="no">No</option>
+            <option value="si">Si</option>
+		</select>
+        </td>
+      </tr>
+      
+      <tr>
+      <th>7.)Ajuste de peso</th>
+        <td>
+        <select name="ajustePeso" class="slider2" id="ap" data-role="slider">
+            <option value="no">No</option>
+            <option value="si">Si</option>
+		</select>
+        </td>
+      </tr>
+      
+      <tr>
+      <th>8.)Elaboracion de protocolo</th>
+        <td>
+        <select name="elaboracionProtocolo" class="slider2" id="ep" data-role="slider">
+            <option value="si">Si</option>
+            <option value="no">No</option>
+            
+		</select>
+        </td>
+      </tr>
+      
+      <tr>
+      <th></th>
+        <td>
+        <button onClick="guardarInforme()">Guardar</button>
+        </td>
+      </tr>
+                  
+    </tbody>
+    
+  </table>
+   <div id="itemCotizar">
+     <h2>Item a Cotizar</h2>
+     <textarea class="item"></textarea>
+   </div> 
+   <br>
+   <div id="observaciones">
+     <h2>observaciones</h2>
+     <textarea class="observaciones"></textarea>
+   </div>
+  </form>
+
+  </div>
+  <div id="separador" style="clear:both"></div> 
+  <footer class="footerMenu">
+        <ul class="listaFooter">
+              <li><a href="#equiposRealizar"><span class="meu"></span></a></li>
+              <!--<li><a href=""><span class="sincronizar"></span></a></li>-->
+              <!--<li><a href=""><span class="reportarFallo"></span></a></li>-->
+              <!--<li><a href=""><span class="salir"></span></a></li>-->
+        </ul>
+      </footer>
+      
+      
+</div><!--Cierra pagina informe-->
+
+
+<div data-role="page" id="estados0">
+     <div id="contenedor">
+      <header></header>
+      <section id="contenido" class="pExcentricidad">
+      
+     <h2>Prueba de excentricidad</h2>
+     <div class="recordar">
+          <h5>Cap<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaCapMin"></span></span></h5>
+          <h5 style="margin-top:-17px">d<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaD"></span></span></h5>
+     </div>
+      <hr>
+        <form id="estados" method="post" style="margin-left:8%">
+        
+      <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" style="float:left; width:50%">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">Carga <span class="medida" style="margin:0">(kg)</span></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="cargaExtdd" onBlur="compararExtdd(this.value)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">Posición</th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin:0">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center"><span class="letraGriega">I<sub>i</sub> - I<sub>1</sub><br></span><span class="medida" style="margin:0">(kg)</span></th>
+            </tr>
+          </thead>
+          
+          <tbody class="listasExcentricidad">
+          
+          </tbody>
+      
+      </table>    
+         </form>
+         
+      <div id="contforma">
+        <select name="formas" class="formas" id="formas" onChange="numeroFormas()">
+            <option value="" selected>Seleccionar equipo</option>
+            <option value="cdra5">Cuadrada 5 Puntos</option>
+            <option value="clar5">Circular 5 Puntos</option>
+            <option value="tlar4">Triangular 4 Puntos</option>
+            <option value="tbp3">Tanque bajo perfil 3 Puntos</option>
+            <option value="tms3">Tanque modulo de pesaje suspendido 3 Puntos</option>
+            <option value="tbp4">Tanque bajo perfil 4 Puntos</option>
+            <option value="t3">Tolva 3 Puntos de apoyo </option>
+            <option value="riel">Riel 3 puntos </option>
+            <option value="t4">Tolva 4 Puntos de apoyo </option>
+            <option value="ta4">Tolva - Agregados 4 Puntos de apoyo</option>
+            <option value="c2">Camionera 2 Modulos de pesaje</option>
+            <option value="c3">Camionera 3 Modulos de pesaje </option>
+            <option value="c4">Camionera 4 Modulos de pesaje </option>
+            <option value="c5">Camionera 5 Modulos de pesaje </option>
+		</select>
+        <div id="fotoForma"></div>
+      </div>
+      <br>
+      <br>
+      <div id="criterio" style="clear:both; margin-top:10px;margin-left:26%">
+      
+        <div id="titulosCriterio" style="width:20%; float:left; margin-top:23px; ">
+           Criterio:
+           <br><br>
+           Calculo<span class="medida" style="margin:0">(kg)</span>:
+           <br><br>
+           Conforme:
+        </div><!--cierra titulosCriterio-->
+        
+        <div id="resCriterio" style="float:left; width:40%; position:relative">
+           <h4>|<span class="letraGriega" style="display:inline-block;">I<sub>i</sub> - I<sub>1</sub><br></span>|<sub>max</sub> ≤  |EMP|  </h4></div>
+           <br>
+           <br>
+           <div id="diferencias" style="position:absolute; display:inline-block; left:43%">
+             <h4 id="maxI" ></h4>&nbsp; &nbsp;<h4 class="mayorOmenor"></h4>&nbsp; &nbsp;<h4 id="emp"></h4>
+           </div><!--cierra diferencias-->  
+           <br>
+           <br>
+           <h4 id="conformidad" style="position: absolute;left: 42%;bottom:-19px;"></h4>
+        </div><!--cierra resCtiterio-->
+             
+      </div><!--Cierra criterio-->
+     
+      
+      
+       <!--Empieza repetibilidad-->
+       
+       
+       
+       <hr style="clear:both;">
+       <h2 style="clear:both; margin-top:50px">Prueba de Repetibilidad</h2>
+       <div class="recordar">
+          <h5>Cap<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaCapMin"></span></span></h5>
+          <h5 style="margin-top:-17px">d<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaD"></span></span></h5>
+       </div>
+       <hr>
+        <form id="repetibilidad" method="post">
+        
+  <table data-role="table" id="movie-table"  data-mode="reflow" class="ui-responsive table-stroke tablaGrande" style="float:left; width:30%;">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center;line-height:80px;width:37% !important">Carga <span class="medida" style="margin-left:2px">(kg)</span></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="cargaRepetibilidad" onBlur="capturaCarga(this)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasRepetibilidad listasR">
+          
+          <tr>
+            <th>1</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>2</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>3</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>4</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>5</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr> 
+          </tbody>
+      
+      </table>
+      
+      <!--segunda-->
+      <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" style="float:left; width:23%; margin-left:5%;">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center;line-height:80px">Carga<span class="medida" style="margin-left:5px;">(kg)</span></th>
+              <th data-priority="1" class="titleTable agrandar"><input type="number" class="cargaRepetibilidad" onBlur="capturaCarga(this)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>     
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasRepetibilidad2 listasR">
+          
+          <tr>
+           
+             <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+           
+             <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+          
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+         
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+      
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr> 
+          </tbody>
+      
+      </table>
+      
+      <!--Tercera-->
+      
+      <!--<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" style="float:left; width:30%; margin-left:5%;">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center; line-height:80px">Carga<span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="cargaRepetibilidad" onBlur="capturaCarga(this)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+           <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasRepetibilidad2 listasR">
+          
+          <tr>
+           
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+        
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+         
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+           
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+         
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr> 
+          </tbody>
+      
+      </table>-->
+          
+         </form> 
+     <div id="criterios" style="clear:both;">  
+       <div id="criterio2" style=" margin-top:10px; margin-left:24.5%">
+      
+        <div id="titulos2" style="width:14%; float:left; margin-top:23px; ">
+           Criterio<sub>1</sub>:
+           <br><br>
+           Calculo<sub>1</sub><span class="medida" style="margin:0">(kg)</span>:
+           <br><br>
+           Conforme<sub>1</sub>:
+        </div>
+        
+        <div id="resCriterio2" style="float:left; width:31%; position:relative">
+        
+            <h4>|<span class="letraGriega" style="display:inline-block;">E<sub>max</sub> - E<sub>min</sub><br></span>| ≤  |EMP|  </h4>
+            <br>
+            <br>
+            <div id="diferencias2" style="position:absolute; display:inline-block; top:39px;">
+              <h4 id="maxI2"></h4>&nbsp; &nbsp;<h4 class="mayorOmenor2"></h4>&nbsp; &nbsp;<h4 id="emp2"></h4> 
+            </div><!--cierra diferencias-->  
+              <br>
+              <br>
+            <h4 id="conformidad2" style="top: 74px; position:absolute"></h4>
+             
+        </div><!--cierra resCtiterio-->      
+      </div> 
+      
+      <div id="criterio2b" style=" margin-top:10px; margin:-20px 0 0 14%">
+      
+        <div id="titulos2b" style="width:14%; float:left; margin-top:23px; ">
+           Criterio<sub>2</sub>:
+           <br><br>
+           Calculo<sub>2</sub><span class="medida" style="margin:0">(kg)</span>:
+           <br><br>
+           Conforme<sub>2</sub>:
+        </div>
+        
+        <div id="resCriterio2b" style="float:left; width:20%; position:relative">
+        
+            <h4>|<span class="letraGriega" style="display:inline-block;">E<sub>max</sub> - E<sub>min</sub><br></span>| ≤  |EMP|  </h4>
+            <br>
+            <br>
+            <div id="diferencias2b" style="position:absolute; display:inline-block; top:39px;">
+              <h4 id="maxI2b"></h4>&nbsp; &nbsp;<h4 class="mayorOmenor2b"></h4>&nbsp; &nbsp;<h4 id="emp2b"></h4>
+            </div><!--cierra diferencias-->  
+              <br>
+              <br>
+            <h4 id="conformidad2b" style="top: 74px; position:absolute"></h4>
+             
+        </div><!--cierra resCtiterio-->      
+      </div> 
+    </div>     
+     <!-- Cierra repetibilidad-->
+     
+      
+      <h2 style="clear:both">Prueba de Exactitud</h2>
+      <div class="recordar">
+          <h5>Cap<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaCapMin"></span></span></h5>
+          <h5 style="margin-top:-17px">d<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaD"></span></span></h5>
+     </div>
+      <hr>
+        <form id="exactitud" method="post" style="margin-left:8%; width:100%">
+        
+      <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">        
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Carga<br> <span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasExactitud">
+          
+          <tr>
+            <th>1</th>
+              <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>2</th>
+             <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud"  onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input  class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>3</th>
+            <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input  class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>4</th>
+              <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>5</th>
+              <td>
+                <input type="number" id="cargaExactitud" onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>4</th>
+              <td>
+                <input type="number" id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>3</th>
+             <td>
+                <input type="number"  id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud"  onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>2</th>
+              <td>
+                <input type="number" id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>1</th>
+              <td>
+                <input type="number" id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+                       
+          </tbody>
+      
+      </table>    
+         </form> 
+         
+      <div id="criterio2" style="clear:both; margin-top:10px; margin-left:40%">
+      
+        <div id="titulos2" style="width:18%; float:left; margin-top:23px; ">
+           Criterio:
+           <br><br>
+           Conforme:
+        </div>
+        
+        <div id="resCriterio3" style="float:left; width:40%; position:relative">
+        
+            <h4>|<span class="letraGriega" style="display:inline-block;">E<sub>i</sub><br></span>| ≤  |EMP|  </h4>
+            <br>
+            <br>
+            <!--<div id="diferencias3" style="position:absolute; display:inline-block; top:39px;">
+              <h4 id="maxI3" ></h4>&nbsp; &nbsp;<h4 class="mayorOmenor3"></h4>&nbsp; &nbsp;<h4 id="emp3"></h4>
+            </div><!--cierra diferencias-->  
+          
+            <h4 id="conformidad3" style="top: 34px; position:absolute"></h4>
+             
+        </div><!--cierra resCtiterio-->      
+      </div>     
+           
+      <div id="grafico" style="width:94%; margin-bottom:40px; background:#FFF;position:relative">
+        <a data-role="button" onClick="mostrarGrafica()" style="width:80%; margin-left:10%">Mostrar gráfica</a>
+        <h4>Errores máximos permitidos según:<span class="tolerancia"></span></h4>
+        <div class="taparLogo"></div>
+          <div class="taparX"><h6 style="text-align:center">Cargas<span class="medida" style="margin-left:5px">(kg)</span></th></h6></div>
+          <div class="taparY"><h6 class="rotateTol" style="text-align:center">Tolerancia<span class="medida" style="margin-left:5px">(kg)</span></th></h6></div>
+          <div class="taparTitulo"></div>
+          <div class="rayaCero"></div>
+          <div class="idLineas">
+             <ul>
+                <li><span class="creciente"></span><h5 style="margin:2px 0 22px -21px">Creciente</h5></li>
+                <li><span class="decreciente"></span><h5 style="margin:2px 0 22px -21px">Decreciente</h5></li>
+             </ul>
+          </div>
+        <div class="graph" style="position:relative"> 
+          Cargando...
+        </div>
+      </div>   
+      
+           
+     </section>
+     <div id="incertidumbre" style="clear:both;">
+     
+       <h2 style="margin-bottom:-15px;">INCERTIDUMBRE EXPANDIDA</h2>
+       <h3 style="font-family:'Book Antiqua', Palatino, serif; font-style:italic; display:inline-block">U</h3><h5 style="display:inline-block">E</h5><span class="medida" style="margin-left:5px;display:inline-block">(kg):</span><span id="ue" style="display:inline-block; font-weight:bold0"></span>
+        <p style="margin-top:-15px">Con un k=2 para una probabilidad de cobertura de un 95% de las mediciones realizadas.</p>
+     </div>      
+         <div id="separador"></div>      
+      </section>
+      <div style="">
+     <button onClick="guardarPruebas()">Guardar</button> 
+     </div>
+      <footer class="footerMenu">
+        
+        <ul class="listaFooter">
+              <li><a href="#equiposRealizar"><span class="meu"></span></a></li>
+              <!--<li><a href=""><span class="sincronizar"></span></a></li>-->
+              <!--<li><a><span class="reportarFallo"></span></a></li>-->
+              <!--<li><a href=""><span class="salir"></span></a></li>-->
+        </ul>
+      </footer>
+    </div>
+   
+</div><!--Cierra data role-->
+
+
+<div class="newpage"></div>
+
+<div id="negro">
+
+<div id="dialog"><div class="cerrar">X</div>
+
+   <h3><br>  Haz finalizado correctamente este formulario,¿deseas otro de estos mismos?</h3> 
+   <div id="siInforme">Si</div>
+   <div id="noInforme">No</div>
+</div>
+
+
+<script src="js/eventos.js"></script>
+
+</body>
+</html>

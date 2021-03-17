@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <div id="contenedor">
+      <a href="" data-rel="back" id="back"><img src="img/back.png" /></a>
+      <header></header>
+      <section id="contenido" data-role="content">
+        <form id="formDatosEquipo" method="post">
+          <div data-role="fieldcontain">
+            <label for="equipoI">Tipo de Equipo:</label><br />
+            <select
+              name="equipoI"
+              class="equipoI"
+              id="equipoI"
+              onChange="cambioEquipo(this.value)"
+            >
+              <option value="Bascula Electronica">Bascula Electrónica</option>
+              <option value="Balanza Electronica">Balanza Electrónica</option>
+              <option value="Balanza Analitica">Balanza Analítica</option>
+              <option value="Balanza Mecanica">Balanza Mecánica</option>
+              <option value="Balanza Det Humedad">Balanza Det Humedad</option>
+              <option value="Bascula Mecanica">Bascula Mecánica</option>
+              <option value="Bascula Electromecánica">
+                Bascula Electromecánica
+              </option>
+              <option value="Dinamometro">Dinamómetro</option>
+              <option value="Bascula Electronica(Riel)">
+                Bascula Electrónica(Riel)
+              </option>
+              <option value="Bascula Camionera Electronica">
+                Bascula Camionera Electrónica
+              </option>
+              <option value="Bascula Camionera Electromecanica">
+                Bascula Camionera Electromecánica
+              </option>
+              <option value="Bascula Camionera Mecanica">
+                Bascula Camionera Mecanica
+              </option>
+              <option value="Bascula (Tipo tanque)">
+                Bascula (Tipo tanque)
+              </option>
+              <option value="Bascula (Tipo tolva)">Bascula (Tipo tolva)</option>
+              <option value="Bascula (Tipo silo)">Bascula (Tipo silo)</option>
+            </select>
+
+            <br /><br />
+            <label for="nFabricante">Fabricante:</label><br />
+            <input
+              type="text"
+              name="nFabricante"
+              class="nFabricante"
+              placeholder="Fabricante"
+            />
+            <br /><br />
+
+            <label for="modeloI">Modelo:</label><br />
+            <input
+              type="text"
+              name="modeloI"
+              class="modeloI"
+              placeholder="Modelo"
+            />
+            <br /><br />
+
+            <label for="nSerieI">No Serie:</label><br />
+            <input
+              type="text"
+              name="nSerieI"
+              class="nSerieI"
+              placeholder="No. Serie"
+            />
+            <br /><br />
+
+            <label for="codigoInternoI">Código Interno:</label><br />
+            <input
+              type="text"
+              name="codigoInternoI"
+              class="codigoInternoI"
+              placeholder="Codigo Interno"
+            />
+
+            <br /><br />
+            <label for="ubicacionIs">Ubicación:</label><br />
+            <input
+              type="text"
+              name="ubicacionIs"
+              id="ubicacionIs"
+              placeholder="Ubicación"
+            />
+            <br /><br />
+            <label for="nStickerIs">Numero de sticker:</label><br />
+            <input
+              type="text"
+              name="nStickerIs"
+              id="nStickerIs"
+              placeholder="Numero de sticker"
+            />
+
+            <br /><br />
+            <label for="fecha">Fecha:</label><br />
+            <input type="date" placeholder="DD/MM/AA" id="fecha" name="fecha" />
+            <br /><br />
+            <label for="medidaI">Unidad de Medida:</label><br />
+            <select
+              name="medidaI"
+              class="medidaI"
+              id="medidaI"
+              onChange="cambioMedida(this)"
+            >
+              <option value="kg">kg</option>
+              <option value="µg">µg</option>
+              <option value="mg">mg</option>
+              <option value="g">g</option>
+              <option value="t">t</option>
+            </select>
+            <br /><br />
+
+            <label for="decimalI">Numero de decimal:</label><br />
+            <select
+              name="decimalI"
+              class="decimalI"
+              id="decimalI"
+              onChange="cambioDecimal(this)"
+            >
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+            </select>
+            <br /><br />
+
+            <label for="medidaI">Range:</label><br />
+            <select
+              name="rangeI"
+              class="rangeI"
+              id="rangeI"
+              onChange="cambioRange(this.value)"
+            >
+              <option value="single">Single</option>
+              <option value="double">Double</option>
+              <option value="triple">Triple</option>
+            </select>
+
+            <br /><br />
+            <div id="rangos">
+              <label for="capacidadI"
+                >Capacidad:<span class="medida" style="margin: 0"
+                  >(kg)</span
+                ></label
+              >
+              <input
+                type="number"
+                name="capacidadI"
+                class="cap0"
+                id="capacidadI"
+                placeholder="Capacidad"
+              />
+              <input
+                type="number"
+                name="capacidadI"
+                class="cap1"
+                id="capacidadI"
+                placeholder="Capacidad"
+                style="display: none"
+              />
+              <input
+                type="number"
+                name="capacidadI"
+                class="cap2"
+                id="capacidadI"
+                placeholder="Capacidad"
+                style="display: none"
+              /><br /><br />
+              <label for="dI">d: <span class="medida">(kg)</span></label>
+              <input type="number" name="dI" id="dI" class="dI0" />
+              <input
+                type="number"
+                name="dI"
+                id="dI"
+                class="dI1"
+                style="display: none"
+              />
+              <input
+                type="number"
+                name="dI"
+                id="dI"
+                class="dI2"
+                style="display: none"
+              /><br /><br />
+              <label for="eI">e: <span class="medida">(kg)</span></label>
+              <input type="number" name="eI" id="eI" class="eI0" />
+              <input
+                type="number"
+                name="eI"
+                id="eI"
+                class="eI1"
+                style="display: none"
+              />
+              <input
+                type="number"
+                name="eI"
+                id="eI"
+                class="eI2"
+                style="display: none"
+              />
+            </div>
+            <br /><br />
+            <label for="tolerancias">Tolerancias Según:</label><br />
+            <select
+              name="tolerancias"
+              class="tolerancias"
+              id="tolerancias"
+              onChange="cambioTolerancias(this.value)"
+            >
+              <option value="">escoger la tolerancia</option>
+              <option value="OIMLR 76-1">OIMLR 76-1 v.2006</option>
+              <!--<option value="Fabricante">Fabricante</option>   -->
+            </select>
+
+            <br /><br />
+            <div id="cuadroClasificacion" style="display: none">
+              <h4>Clase:<span class="clase"></span></h4>
+              <h4 style="float: left">
+                Capacidad Mínima &nbsp;<span class="medida" style="margin: 0"
+                  >(kg)</span
+                >:
+              </h4>
+              <input style="float: left" type="text" disabled id="capMinI" />
+
+              <select
+                style="float: left; margin-top: -15px !important"
+                name="limpiezaGeneral"
+                class="slider2"
+                id="oi"
+                data-role="slider"
+                onChange="cambieCapMin(this.value)"
+              >
+                <option value="OIMLR">OIMLR</option>
+                <option value="Fabricante">Fabricante</option>
+              </select>
+
+              <table
+                data-role="table"
+                id="movie-table"
+                data-mode="reflow"
+                class="ui-responsive table-stroke"
+                style="float: left; width: 50%; margin-top: 30px"
+              >
+                <thead>
+                  <tr>
+                    <th data-priority="1" class="titleTable"></th>
+                    <th
+                      data-priority="1"
+                      class="titleTable"
+                      style="line-height: 23px; text-align: center"
+                    >
+                      Rango<span class="medida" style="margin: 0">(kg)</span>
+                    </th>
+                    <th
+                      data-priority="1"
+                      class="titleTable"
+                      style="line-height: 23px; text-align: center"
+                    ></th>
+                    <th
+                      data-priority="1"
+                      class="titleTable"
+                      style="line-height: 23px; text-align: center"
+                    >
+                      Error máximo Permitido(EMP)
+                      <span class="medida" style="margin: 0">(kg)</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="listasrangos">
+                  <tr class="rl0">
+                    <th>
+                      <input type="number" value="0" disabled class="cero" />
+                    </th>
+                    <td>≤ m ≤</td>
+                    <td><input type="text" class="r0" disabled value="0" /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+
+                  <tr class="rl1">
+                    <th>
+                      <input type="number" class="rn0" disabled value="0" />
+                    </th>
+                    <td>< m ≤</td>
+                    <td><input type="text" value="0" class="r1" disabled /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+
+                  <tr class="rl2">
+                    <th>
+                      <input type="number" value="0" class="rn1" disabled />
+                    </th>
+                    <td>< m ≤</td>
+                    <td><input value="0" type="text" class="r2" disabled /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+
+                  <tr class="rl3">
+                    <th>
+                      <input value="0" type="number" class="rn2" disabled />
+                    </th>
+                    <td>< m ≤</td>
+                    <td><input value="0" type="text" class="r3" disabled /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+
+                  <tr class="rl4">
+                    <th>
+                      <input value="0" type="number" class="rn3" disabled />
+                    </th>
+                    <td>< m ≤</td>
+                    <td><input value="0" type="text" class="r4" disabled /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+
+                  <tr class="rl5">
+                    <th>
+                      <input value="0" type="number" class="rn4" disabled />
+                    </th>
+                    <td>< m ≤</td>
+                    <td><input value="0" type="text" class="r5" disabled /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+
+                  <tr class="rl6">
+                    <th>
+                      <input value="0" type="number" class="rn5" disabled />
+                    </th>
+                    <td>< m ≤</td>
+                    <td><input value="0" type="text" class="r6" disabled /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+
+                  <tr class="rl7">
+                    <th>
+                      <input value="0" type="number" class="rn6" disabled />
+                    </th>
+                    <td>< m ≤</td>
+                    <td><input value="0" type="text" class="r7" disabled /></td>
+                    <td>
+                      <h4>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;± &nbsp;
+                        <span class="toleran"></span>
+                      </h4>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="cuadroClasificacion2" style="display: none">
+              <br />
+              <select id="claseI">
+                <option value="">Elegir la clase</option>
+                <option value="1">Clase I</option>
+                <option value="2">Clase II</option>
+                <option value="3">Clase III</option>
+                <option value="4">Clase IIII</option>
+              </select>
+              <br />
+              <br />
+              <label for="capMinEdit"
+                >Capacidad Mínima<span class="medida">(kg)</span></label
+              >
+              <input
+                type="number"
+                name="capMinEdit"
+                id="capMinEdit"
+                class="capMinEdit"
+              />
+              <br />
+              <br />
+              <label for="ds">DS<span class="medida">(kg)</span></label>
+              <input type="text" name="ds" id="ds" class="ds" />
+              <br />
+              <br />
+              <label for="dl">DL<span class="medida">(kg)</span></label>
+              <input type="text" name="dl" id="dl" class="dl" />
+              <br />
+              <br />
+              <label for="de">DE<span class="medida">(kg)</span></label>
+              <input type="text" name="de" id="de" class="de" />
+            </div>
+
+            <select id="trazabilidad" onChange="trazabilidadF(this.value)">
+              <option selected>Escoger Trazabilidad</option>
+              <!--BARRANQUILLA-->
+              <option value="1">JPTB - 003</option>
+              <option value="2">LPTB - 005</option>
+              <option value="3">LPTB - 001</option>
+              <option value="4">LPTB - 002</option>
+              <option value="5">LPTB - 003</option>
+              <option value="33">LPTB - 004</option>
+              <option value="26">JPTB - 005</option>
+
+              <!--CARTAGENA-->
+              <option value="6">JPTC - 004</option>
+              <option value="7">JPTC - 005</option>
+              <option value="8">LPTC - 005</option>
+              <option value="9">LPTC - 006</option>
+              <option value="10">PIC - 004</option>
+              <option value="31">JPTC 006</option>
+              <option value="32">JPTC 007</option>
+              <option value="34">LPTC - 007</option>
+
+              <!--MEDELLIN-->
+              <option value="11">JPTM - 001</option>
+              <option value="12">JPTM - 002</option>
+              <option value="13">JPTM - 007</option>
+              <option value="14">PIM - 001</option>
+              <option value="15">PIM - 002</option>
+              <option value="16">LPTM - 002</option>
+              <option value="17">LPTM - 003</option>
+              <option value="18">LPTM - 004</option>
+              <option value="35">LPTM - 005</option>
+              <option value="27">JPTM - 003</option>
+              <option value="28">JPTM - 004</option>
+
+              <!--CALI-->
+              <option value="19">JPTCA - 006</option>
+              <option value="36">JPTCA - 007</option>
+              <option value="37">JPTCA - 008</option>
+              <option value="20">LPTCA - 001</option>
+              <option value="21">LPTCA - 002</option>
+              <option value="22">LPTCA - 004</option>
+
+              <!--BOGOTÁ-->
+              <option value="23">JPTBO - 001</option>
+              <option value="24">JPTBO - 002</option>
+              <option value="29">JPTBO - 003</option>
+              <option value="30">JPTBO - 004</option>
+              <option value="38">JPTBO - 005</option>
+              <option value="39">JPTBO - 006</option>
+              <option value="25">LPTM - 002</option>
+            </select>
+
+            <div class="mas">
+              <a data-role="button" onClick="agregarTrazabilidad()">+</a>
+            </div>
+
+            <div
+              id="descripciones"
+              style="clear: both; text-align: center; margin: 30px 0"
+            ></div>
+            <!-- <label for="nStikerI">No Stiker:</label><br>
+              <input type="text" name="nStikerI" class="nStikerI" placeholder="No Sticker"/>
+              <br><br>
+              -->
+            <button onClick="guardarEquipo()">Guardar</button>
+          </div>
+        </form>
+        <div id="separador"></div>
+      </section>
+      <footer class="footerMenu">
+        <ul class="listaFooter">
+          <li>
+            <a href="#equiposRealizar"><span class="meu"></span></a>
+          </li>
+          <li>
+            <a href=""><span class="sincronizar"></span></a>
+          </li>
+          <li onClick="borrar()">
+            <a><span class="eliminar"></span></a>
+          </li>
+          <li>
+            <a href=""><span class="salir"></span></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>

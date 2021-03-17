@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+
+  <body>
+    <div id="contenedor">
+      <header></header>
+      <div data-role="content">
+        <a href="" data-rel="back" id="back"><img src="img/back.png" /></a>
+        <h3 style="color: #f33c3c">1.) Verificación Inicial</h3>
+        <hr />
+        <div id="verificarExc">
+          <h2>Excentricidad</h2>
+          <textarea class="excentricidad"></textarea>
+        </div>
+        <div id="verificarExac">
+          <h2>Exactitud</h2>
+          <textarea class="exactitud"></textarea>
+        </div>
+
+        <h3 style="color: #f33c3c">2.) Inspección General</h3>
+        <!--Basculas mecanicas-->
+        <table
+          data-role="table"
+          id="movie-table"
+          data-mode="reflow"
+          class="ui-responsive table-stroke tablaVerificar basculaMecanica"
+        >
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">COMPONENTES</th>
+              <th data-priority="1" class="titleTable">ESTADO</th>
+            </tr>
+          </thead>
+          <tbody class="listasEquipos componente1">
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                a.)Platinas
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-a"
+                    id="radio-choice-1"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-a"
+                    id="radio-choice-2"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-a"
+                    id="radio-choice-3"
+                    value="B"
+                  />
+                  <label for="radio-choice-3">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-a"
+                    id="radio-choice-4"
+                    value="D"
+                  />
+                  <label for="radio-choice-4">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-a"
+                    id="radio-choice-5"
+                    value="R"
+                  />
+                  <label for="radio-choice-5">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-a"
+                    id="radio-choice-6"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                b.) Estructura
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-b"
+                    id="radio-choice-1b"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1b">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-b"
+                    id="radio-choice-2b"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2b">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-b"
+                    id="radio-choice-3b"
+                    value="B"
+                  />
+                  <label for="radio-choice-3b">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-b"
+                    id="radio-choice-4b"
+                    value="D"
+                  />
+                  <label for="radio-choice-4b">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-b"
+                    id="radio-choice-5b"
+                    value="R"
+                  />
+                  <label for="radio-choice-5b">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-b"
+                    id="radio-choice-6b"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6b">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                c.) Topes
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-c"
+                    id="radio-choice-1c"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1c">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-c"
+                    id="radio-choice-2c"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2c">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-c"
+                    id="radio-choice-3c"
+                    value="B"
+                  />
+                  <label for="radio-choice-3c">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-c"
+                    id="radio-choice-4c"
+                    value="D"
+                  />
+                  <label for="radio-choice-4c">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-c"
+                    id="radio-choice-5c"
+                    value="R"
+                  />
+                  <label for="radio-choice-5c">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-c"
+                    id="radio-choice-6c"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6c">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                d.) Tapa o bandeja
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-d"
+                    id="radio-choice-1d"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1d">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-d"
+                    id="radio-choice-2d"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2d">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-d"
+                    id="radio-choice-3d"
+                    value="B"
+                  />
+                  <label for="radio-choice-3d">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-d"
+                    id="radio-choice-4d"
+                    value="D"
+                  />
+                  <label for="radio-choice-4d">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-d"
+                    id="radio-choice-5d"
+                    value="R"
+                  />
+                  <label for="radio-choice-5d">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-d"
+                    id="radio-choice-6d"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6d">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                e.)Patas escualizables o fijas
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-e"
+                    id="radio-choice-1e"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1e">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-e"
+                    id="radio-choice-2e"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2e">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-e"
+                    id="radio-choice-3e"
+                    value="B"
+                  />
+                  <label for="radio-choice-3e">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-e"
+                    id="radio-choice-4e"
+                    value="D"
+                  />
+                  <label for="radio-choice-4e">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-e"
+                    id="radio-choice-5e"
+                    value="R"
+                  />
+                  <label for="radio-choice-5e">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-e"
+                    id="radio-choice-6e"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6e">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                f.) Tornillería
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-f"
+                    id="radio-choice-1f"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1f">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-f"
+                    id="radio-choice-2f"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2f">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-f"
+                    id="radio-choice-3f"
+                    value="B"
+                  />
+                  <label for="radio-choice-3f">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-f"
+                    id="radio-choice-4f"
+                    value="D"
+                  />
+                  <label for="radio-choice-4f">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-f"
+                    id="radio-choice-5f"
+                    value="R"
+                  />
+                  <label for="radio-choice-5f">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-f"
+                    id="radio-choice-6f"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6f">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                g.) Calzas
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-g"
+                    id="radio-choice-1g"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1g">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-g"
+                    id="radio-choice-2g"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2g">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-g"
+                    id="radio-choice-3g"
+                    value="B"
+                  />
+                  <label for="radio-choice-3g">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-g"
+                    id="radio-choice-4g"
+                    value="D"
+                  />
+                  <label for="radio-choice-4g">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-g"
+                    id="radio-choice-5g"
+                    value="R"
+                  />
+                  <label for="radio-choice-5g">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-g"
+                    id="radio-choice-6g"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6g">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                a.) Tarjeta principal
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-h"
+                    id="radio-choice-1h"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1h">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-h"
+                    id="radio-choice-2h"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2h">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-h"
+                    id="radio-choice-3h"
+                    value="B"
+                  />
+                  <label for="radio-choice-3h">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-h"
+                    id="radio-choice-4h"
+                    value="D"
+                  />
+                  <label for="radio-choice-4h">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-h"
+                    id="radio-choice-5h"
+                    value="R"
+                  />
+                  <label for="radio-choice-5h">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-h"
+                    id="radio-choice-6h"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6h">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                b.) Display
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-i"
+                    id="radio-choice-1i"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1i">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-i"
+                    id="radio-choice-2i"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2i">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-i"
+                    id="radio-choice-3i"
+                    value="B"
+                  />
+                  <label for="radio-choice-3i">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-i"
+                    id="radio-choice-4i"
+                    value="D"
+                  />
+                  <label for="radio-choice-4i">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-i"
+                    id="radio-choice-5i"
+                    value="R"
+                  />
+                  <label for="radio-choice-5i">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-i"
+                    id="radio-choice-6i"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6i">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                c.) Teclado
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-j"
+                    id="radio-choice-1j"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1j">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-j"
+                    id="radio-choice-2j"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2j">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-j"
+                    id="radio-choice-3j"
+                    value="B"
+                  />
+                  <label for="radio-choice-3j">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-j"
+                    id="radio-choice-4j"
+                    value="D"
+                  />
+                  <label for="radio-choice-4j">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-j"
+                    id="radio-choice-5j"
+                    value="R"
+                  />
+                  <label for="radio-choice-5j">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-j"
+                    id="radio-choice-6j"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6j">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                d.) Carcaza o tapas
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-k"
+                    id="radio-choice-1k"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1k">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-k"
+                    id="radio-choice-2k"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2k">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-k"
+                    id="radio-choice-3k"
+                    value="B"
+                  />
+                  <label for="radio-choice-3k">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-k"
+                    id="radio-choice-4k"
+                    value="D"
+                  />
+                  <label for="radio-choice-4k">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-k"
+                    id="radio-choice-5k"
+                    value="R"
+                  />
+                  <label for="radio-choice-5k">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-k"
+                    id="radio-choice-6k"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6k">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                e.) Prensa estopas
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-l"
+                    id="radio-choice-1l"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1l">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-l"
+                    id="radio-choice-2l"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2l">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-l"
+                    id="radio-choice-3l"
+                    value="B"
+                  />
+                  <label for="radio-choice-3l">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-l"
+                    id="radio-choice-4l"
+                    value="D"
+                  />
+                  <label for="radio-choice-4l">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-l"
+                    id="radio-choice-5l"
+                    value="R"
+                  />
+                  <label for="radio-choice-5l">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-1"
+                    id="radio-choice-6"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                f.) Adaptador/Cable
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-m"
+                    id="radio-choice-1m"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1m">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-m"
+                    id="radio-choice-2m"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2m">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-m"
+                    id="radio-choice-3m"
+                    value="B"
+                  />
+                  <label for="radio-choice-3m">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-m"
+                    id="radio-choice-4m"
+                    value="D"
+                  />
+                  <label for="radio-choice-4m">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-m"
+                    id="radio-choice-5m"
+                    value="R"
+                  />
+                  <label for="radio-choice-5m">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-m"
+                    id="radio-choice-6m"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6m">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                a.)Cable(s) de celda(s)
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-n"
+                    id="radio-choice-1n"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1n">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-n"
+                    id="radio-choice-2n"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2n">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-n"
+                    id="radio-choice-3n"
+                    value="B"
+                  />
+                  <label for="radio-choice-3n">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-n"
+                    id="radio-choice-4n"
+                    value="D"
+                  />
+                  <label for="radio-choice-4n">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-n"
+                    id="radio-choice-5n"
+                    value="R"
+                  />
+                  <label for="radio-choice-5n">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-n"
+                    id="radio-choice-6n"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6n">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                b.) Caja de juntas
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-ene"
+                    id="radio-choice-1ene"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1ene">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-ene"
+                    id="radio-choice-2ene"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2ene">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-ene"
+                    id="radio-choice-3ene"
+                    value="B"
+                  />
+                  <label for="radio-choice-3ene">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-ene"
+                    id="radio-choice-4ene"
+                    value="D"
+                  />
+                  <label for="radio-choice-4ene">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-ene"
+                    id="radio-choice-5ene"
+                    value="R"
+                  />
+                  <label for="radio-choice-5ene">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-ene"
+                    id="radio-choice-6ene"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6ene">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                c.) Tarjeta Sumatoria
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-o"
+                    id="radio-choice-1o"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1o">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-o"
+                    id="radio-choice-2o"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2o">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-o"
+                    id="radio-choice-3o"
+                    value="B"
+                  />
+                  <label for="radio-choice-3o">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-o"
+                    id="radio-choice-4o"
+                    value="D"
+                  />
+                  <label for="radio-choice-4o">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-o"
+                    id="radio-choice-5o"
+                    value="R"
+                  />
+                  <label for="radio-choice-5o">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-o"
+                    id="radio-choice-6o"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6o">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">d.) Foso</th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-p"
+                    id="radio-choice-1p"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1p">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-p"
+                    id="radio-choice-2p"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2p">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-p"
+                    id="radio-choice-3p"
+                    value="B"
+                  />
+                  <label for="radio-choice-3p">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-p"
+                    id="radio-choice-4p"
+                    value="D"
+                  />
+                  <label for="radio-choice-4p">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-p"
+                    id="radio-choice-5p"
+                    value="R"
+                  />
+                  <label for="radio-choice-5p">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-p"
+                    id="radio-choice-6p"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6p">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                e.) Pintura
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-q"
+                    id="radio-choice-1q"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1q">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-q"
+                    id="radio-choice-2q"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2q">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-q"
+                    id="radio-choice-3q"
+                    value="B"
+                  />
+                  <label for="radio-choice-3q">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-q"
+                    id="radio-choice-4q"
+                    value="D"
+                  />
+                  <label for="radio-choice-4q">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-q"
+                    id="radio-choice-5q"
+                    value="R"
+                  />
+                  <label for="radio-choice-5q">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-q"
+                    id="radio-choice-6q"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6q">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes">
+                f.) Batería
+              </th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-r"
+                    id="radio-choice-1r"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1r">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-r"
+                    id="radio-choice-2r"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2r">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-r"
+                    id="radio-choice-3r"
+                    value="B"
+                  />
+                  <label for="radio-choice-3r">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-r"
+                    id="radio-choice-4r"
+                    value="D"
+                  />
+                  <label for="radio-choice-4r">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-r"
+                    id="radio-choice-5r"
+                    value="R"
+                  />
+                  <label for="radio-choice-5r">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-r"
+                    id="radio-choice-6r"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6r">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+
+            <tr>
+              <th data-priority="1" class="titleTable componentes"></th>
+              <th data-priority="1" class="titleTable">
+                <fieldset data-role="controlgroup" data-type="horizontal">
+                  <input
+                    type="radio"
+                    name="radio-choice-s"
+                    id="radio-choice-1s"
+                    value="N.A"
+                  />
+                  <label for="radio-choice-1s">N.A</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-s"
+                    id="radio-choice-2s"
+                    value="N.P"
+                  />
+                  <label for="radio-choice-2s">N.P</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-s"
+                    id="radio-choice-3s"
+                    value="B"
+                  />
+                  <label for="radio-choice-3s">B</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-s"
+                    id="radio-choice-4s"
+                    value="D"
+                  />
+                  <label for="radio-choice-4s">D</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-s"
+                    id="radio-choice-5s"
+                    value="R"
+                  />
+                  <label for="radio-choice-5s">R</label>
+                  <input
+                    type="radio"
+                    name="radio-choice-s"
+                    id="radio-choice-6s"
+                    value="N.V"
+                  />
+                  <label for="radio-choice-6s">N.V</label>
+                </fieldset>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        <div style="width: 100%; margin: 10px auto 0 auto; clear: both">
+          <button
+            data-theme="b"
+            value="Generar Tabla De resistencias"
+            onClick="generarTablaResistencias()"
+          ></button>
+        </div>
+        <div id="cuadroNoMecanico">
+          <h3 style="color: #f33c3c; clear: both">3.) Mediciones Eléctricas</h3>
+          <table
+            data-role="table"
+            id="movie-table"
+            data-mode="reflow"
+            class="ui-responsive table-stroke"
+            style="float: left; width: 50%"
+          >
+            <thead>
+              <tr>
+                <th data-priority="1" class="titleTable">
+                  Voltaje de Alimentación
+                </th>
+                <th data-priority="1" class="titleTable"></th>
+                <th data-priority="1" class="titleTable"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th data-priority="1">V<sub> fase-Neutro</sub></th>
+                <th data-priority="1" class="titleTable">
+                  <input type="number" class="neutro" />
+                </th>
+                <th data-priority="1" class="titleTable">Vac</th>
+              </tr>
+              <tr>
+                <th data-priority="1">V <sub> fase-Tierra</sub></th>
+                <th data-priority="1" class="titleTable">
+                  <input type="number" class="ftierra" />
+                </th>
+                <th data-priority="1" class="titleTable">Vac</th>
+              </tr>
+              <tr>
+                <th data-priority="1">V <sub> fase-Neutro Tierra</sub></th>
+                <th data-priority="1" class="titleTable">
+                  <input type="number" class="neutroTierra" />
+                </th>
+                <th data-priority="1" class="titleTable">Vac</th>
+              </tr>
+            </tbody>
+          </table>
+          <div style="clear: both"></div>
+          <div id="nodinamometro">
+            <div style="clear: both"></div>
+
+            <div id="cajaJuntas">
+              <h2>Caja de Juntas</h2>
+              <div style="width: 30%; float: left; margin-right: 50px">
+                <label for="cajaMarca">Marca:</label>
+                <input type="text" name="cajaMarca" id="cajaMarca" />
+              </div>
+
+              <div style="width: 30%; float: left">
+                <label for="cajaModelo">Modelo:</label>
+                <input type="text" name="cajaModelo" id="cajaModelo" />
+              </div>
+              <div style="clear: both"></div>
+              <div style="width: 30%; float: left; margin-right: 50px">
+                <label for="cajaAjustePor">Ajueste por</label>
+                <select id="cajaAjustePor">
+                  <option value="Solo por apoyos">Solo por apoyos</option>
+                  <option value="Solo por secciones">Solo por secciones</option>
+                  <option value="Apoyos y secciones">Apoyos y secciones</option>
+                </select>
+              </div>
+
+              <div style="width: 30%; float: left">
+                <label for="cajaTecnologia">Tecnología</label>
+                <select id="cajaTecnologia">
+                  <option value="Análoga">Análoga</option>
+                  <option value="Híbrida">Híbrida</option>
+                  <option value="Digital">Digital</option>
+                </select>
+              </div>
+              <div style="clear: both"></div>
+
+              <hr />
+            </div>
+            <!--CIERRA CAJA JUNTAS-->
+
+            <div style="width: 20%; margin-top: 50px">
+              <label for="numCeldas">Numero de Celdas:</label>
+              <input
+                type="number"
+                name="numCeldas"
+                id="numCeldas"
+                onBlur="numCeldas(this.value)"
+              />
+            </div>
+
+            <!--<div class="clickMe">clickme</div>-->
+            <div id="celdUno">
+              <div style="width: 20%; margin-top: 30px" class="desaparece1">
+                <label for="numCables">Numero de Cables por Celdas:</label>
+                <select
+                  name="numCables"
+                  id="numCables"
+                  onChange="numCables(this.value)"
+                >
+                  <option>Numero de cables</option>
+                  <option value="5">5</option>
+                  <option value="7">7</option>
+                </select>
+              </div>
+              <div style="clear: both"></div>
+              <table
+                data-role="table"
+                id="movie-table"
+                data-mode="reflow"
+                class="ui-responsive table-stroke tablasColores"
+                style="width: 50%; display: none; margin-bottom: 30px"
+              >
+                <tbody class="tablaColores">
+                  <thead>
+                    <tr>
+                      <th data-priority="1" class="titleTable"></th>
+                      <th data-priority="1" class="titleTable">
+                        Codigo de Colores
+                      </th>
+                      <th data-priority="1" class="titleTable"></th>
+                      <th data-priority="1" class="titleTable">Inicial</th>
+                    </tr>
+                  </thead>
+
+                  <tr>
+                    <th data-priority="1" class="titleTable">+ Excitación</th>
+                    <th data-priority="1" class="titleTable">
+                      <select
+                        id="excitacionMas"
+                        onChange="ponerColor(0,this.value)"
+                      >
+                        <option value="#ff0000">Rojo</option>
+                        <option value="#000000">Negro</option>
+                        <option value="#008000">Verde</option>
+                        <option value="#ffffff">Blanco</option>
+                        <option value="desnudo">Pelado</option>
+                        <option value="#1e90ff">Azul</option>
+                        <option value="#a0522d">Cafe</option>
+                        <option value="#ff69b4">Rosado</option>
+                        <option value="#ff8c00">Naranjado</option>
+                        <option value="#ffd700">Amarillo</option>
+                        <option value="#c0c0c0">Gris</option>
+                        <option value="#800080">Morado</option>
+                      </select>
+                    </th>
+                    <th>
+                      <div class="color" style="background: #ff0000"></div>
+                    </th>
+                    <th data-priority="1" class="titleTable inicialColor"></th>
+                  </tr>
+                  <tr>
+                    <th data-priority="1" class="titleTable">-Excitacion</th>
+                    <th data-priority="1" class="titleTable">
+                      <select
+                        id="excitacionMenos"
+                        onChange="ponerColor(1,this.value)"
+                      >
+                        <option value="#000000">Negro</option>
+                        <option value="#ff0000">Rojo</option>
+                        <option value="#008000">Verde</option>
+                        <option value="#ffffff">Blanco</option>
+                        <option value="desnudo">Pelado</option>
+                        <option value="#1e90ff">Azul</option>
+                        <option value="#a0522d">Cafe</option>
+                        <option value="#ff69b4">Rosado</option>
+                        <option value="#ff8c00">Naranjado</option>
+                        <option value="#ffd700">Amarillo</option>
+                        <option value="#c0c0c0">Gris</option>
+                        <option value="#800080">Morado</option>
+                      </select>
+                    </th>
+                    <th>
+                      <div class="color" style="background: #000000"></div>
+                    </th>
+                    <th data-priority="1" class="titleTable inicialColor"></th>
+                  </tr>
+                  <tr>
+                    <th data-priority="1" class="titleTable">+Señal</th>
+                    <th data-priority="1" class="titleTable">
+                      <select id="senalMas" onChange="ponerColor(2,this.value)">
+                        <option value="#008000">Verde</option>
+                        <option value="#000000">Negro</option>
+                        <option value="#ff0000">Rojo</option>
+                        <option value="#ffffff">Blanco</option>
+                        <option value="desnudo">Pelado</option>
+                        <option value="#1e90ff">Azul</option>
+                        <option value="#a0522d">Cafe</option>
+                        <option value="#ff69b4">Rosado</option>
+                        <option value="#ff8c00">Naranjado</option>
+                        <option value="#ffd700">Amarillo</option>
+                        <option value="#c0c0c0">Gris</option>
+                        <option value="#800080">Morado</option>
+                      </select>
+                    </th>
+                    <th>
+                      <div class="color" style="background: #008000"></div>
+                    </th>
+                    <th data-priority="1" class="titleTable inicialColor"></th>
+                  </tr>
+
+                  <tr>
+                    <th data-priority="1" class="titleTable">-Señal</th>
+                    <th data-priority="1" class="titleTable">
+                      <select
+                        id="senalMenos"
+                        onChange="ponerColor(3,this.value)"
+                      >
+                        <option value="#ffffff">Blanco</option>
+                        <option value="#ff0000">Rojo</option>
+                        <option value="#000000">Negro</option>
+                        <option value="#008000">Verde</option>
+                        <option value="desnudo">Pelado</option>
+                        <option value="#1e90ff">Azul</option>
+                        <option value="#a0522d">Cafe</option>
+                        <option value="#ff69b4">Rosado</option>
+                        <option value="#ff8c00">Naranjado</option>
+                        <option value="#ffd700">Amarillo</option>
+                        <option value="#c0c0c0">Gris</option>
+                        <option value="#800080">Morado</option>
+                      </select>
+                    </th>
+                    <th>
+                      <div class="color" style="background: #ffffff"></div>
+                    </th>
+                    <th data-priority="1" class="titleTable inicialColor"></th>
+                  </tr>
+
+                  <tr>
+                    <th data-priority="1" class="titleTable">Tierra</th>
+                    <th data-priority="1" class="titleTable">
+                      <select id="tierra" onChange="ponerColor(4,this.value)">
+                        <option value="desnudo">Pelado</option>
+                        <option value="#ff0000">Rojo</option>
+                        <option value="#000000">Negro</option>
+                        <option value="#008000">Verde</option>
+                        <option value="#ffffff">Blanco</option>
+                        <option value="#a0522d">Cafe</option>
+                        <option value="#ff69b4">Rosado</option>
+                        <option value="#ff8c00">Naranjado</option>
+                        <option value="#ffd700">Amarillo</option>
+                        <option value="#c0c0c0">Gris</option>
+                        <option value="#800080">Morado</option>
+                      </select>
+                    </th>
+                    <th>
+                      <div class="color">
+                        <h1 style="text-align: center; margin: 1px">*</h1>
+                      </div>
+                    </th>
+                    <th data-priority="1" class="titleTable inicialColor"></th>
+                  </tr>
+
+                  <tr class="noMuestra">
+                    <th data-priority="1" class="titleTable">+Sense</th>
+                    <th data-priority="1" class="titleTable">
+                      <select id="senseMas" onChange="ponerColor(5,this.value)">
+                        <option value="#1e90ff">Azul</option>
+                        <option value="#ff0000">Rojo</option>
+                        <option value="#000000">Negro</option>
+                        <option value="#008000">Verde</option>
+                        <option value="#ffffff">Blanco</option>
+                        <option value="desnudo">Pelado</option>
+                        <option value="#a0522d">Cafe</option>
+                        <option value="#ff69b4">Rosado</option>
+                        <option value="#ff8c00">Naranjado</option>
+                        <option value="#ffd700">Amarillo</option>
+                        <option value="#c0c0c0">Gris</option>
+                        <option value="#800080">Morado</option>
+                      </select>
+                    </th>
+                    <th>
+                      <div class="color" style="background: #1e90ff"></div>
+                    </th>
+                    <th data-priority="1" class="titleTable inicialColor"></th>
+                  </tr>
+
+                  <tr class="noMuestra">
+                    <th data-priority="1" class="titleTable">-Sense</th>
+                    <th data-priority="1" class="titleTable">
+                      <select
+                        id="senseMenos"
+                        onChange="ponerColor(6,this.value)"
+                      >
+                        <option value="#a0522d">Cafe</option>
+                        <option value="#ff0000">Rojo</option>
+                        <option value="#000000">Negro</option>
+                        <option value="#008000">Verde</option>
+                        <option value="#ffffff">Blanco</option>
+                        <option value="desnudo">Pelado</option>
+                        <option value="#1e90ff">Azul</option>
+                        <option value="#ff69b4">Rosado</option>
+                        <option value="#ff8c00">Naranjado</option>
+                        <option value="#ffd700">Amarillo</option>
+                        <option value="#c0c0c0">Gris</option>
+                        <option value="#800080">Morado</option>
+                      </select>
+                    </th>
+                    <th>
+                      <div class="color" style="background: #a0522d"></div>
+                    </th>
+                    <th data-priority="1" class="titleTable inicialColor"></th>
+                  </tr>
+                </tbody>
+              </table>
+              <div
+                style="width: 30%; margin: 10px auto 0 auto; clear: both"
+                class="desaparece1"
+              >
+                <button
+                  value="Generar Tabla"
+                  onClick="generarTabla()"
+                  id="generarTabla"
+                ></button>
+              </div>
+              <div id="tarjetaSumatoria">
+                <h2>Tarjeta Sumatoria</h2>
+                <br />
+                <div style="width: 30%; float: left">
+                  <label for="volAlimentacion">Voltaje de Alimentación:</label>
+                  <input
+                    type="number"
+                    name="volAlimentacion"
+                    id="volAlimentacion"
+                  />
+                </div>
+                <h4
+                  class="titleTable"
+                  style="float: left; margin: 50px 0 0 10px"
+                >
+                  DC
+                </h4>
+                <div style="clear: both"></div>
+                <br />
+                <div style="width: 30%; float: left">
+                  <label for="volSalida">Voltaje de Salida:</label>
+                  <input type="number" name="volSalida" id="volSalida" />
+                </div>
+                <h4
+                  class="titleTable"
+                  style="float: left; margin: 50px 0 0 10px"
+                >
+                  mV
+                </h4>
+                <div style="clear: both"></div>
+              </div>
+              <div id="titulosCombinacion">
+                <div class="titulo1">
+                  <p>Medida = Ω</p>
+                  <p></p>
+                </div>
+                <div class="titulo2"><p>Medida en =mV</p></div>
+              </div>
+              <table
+                data-role="table"
+                id="movie-table2"
+                data-mode="reflow"
+                class="ui-responsive table-stroke"
+                style="width: 50%"
+              >
+                <thead>
+                  <tr>
+                    <th data-priority="1" class="titleTable">Combinación</th>
+                    <th data-priority="1" class="titleTable">
+                      &nbsp; &nbsp; &nbsp;
+                    </th>
+                    <th data-priority="1" class="titleTable"></th>
+                    <th data-priority="1" class="titleTable">
+                      &nbsp; &nbsp; &nbsp;
+                    </th>
+                    <th data-priority="1" class="titleTable">
+                      &nbsp; &nbsp; &nbsp;
+                    </th>
+                    <th data-priority="1" class="titleTable">
+                      &nbsp; &nbsp; &nbsp;
+                    </th>
+                    <th data-priority="1" class="titleTable noMuestra2">
+                      &nbsp; &nbsp; &nbsp;
+                    </th>
+                    <th data-priority="1" class="titleTable noMuestra">
+                      &nbsp; &nbsp; &nbsp;
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="ricelake">
+                  <tr id="numeracion">
+                    <th data-priority="1" class="titleTable"></th>
+                  </tr>
+                </tbody>
+                <tbody>
+                  <tr id="inicia1">
+                    <th data-priority="1" class="titleTable combinacion"></th>
+                  </tr>
+
+                  <tr id="inicia2">
+                    <th data-priority="1" class="titleTable combinacion"></th>
+                  </tr>
+
+                  <tr id="inicia3">
+                    <th data-priority="1" class="titleTable combinacion"></th>
+                  </tr>
+
+                  <tr id="inicia4">
+                    <th data-priority="1" class="titleTable combinacion"></th>
+                  </tr>
+
+                  <tr id="inicia5">
+                    <th data-priority="1" class="titleTable combinacion"></th>
+                  </tr>
+
+                  <tr id="inicia6">
+                    <th data-priority="1" class="titleTable combinacion"></th>
+                  </tr>
+
+                  <tr id="vcm">
+                    <th data-priority="1" class="titleTable">
+                      Voltaje con carga muerta
+                    </th>
+                  </tr>
+
+                  <tr id="vav">
+                    <th data-priority="1" class="titleTable">
+                      Voltaje al vacio
+                    </th>
+                  </tr>
+
+                  <tr id="dv">
+                    <th data-priority="1" class="titleTable">△ Vol</th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!--No dinamometro cierra-->
+        </div>
+
+        <form id="formInforme">
+          <table
+            data-role="table"
+            id="movie-table"
+            data-mode="reflow"
+            class="ui-responsive table-stroke"
+          >
+            <thead>
+              <tr>
+                <th data-priority="1" class="titleTable">
+                  Trabajos Realizados
+                </th>
+                <th data-priority="1" class="titleTable"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>1.) verificación Inicial</th>
+                <td>
+                  <select
+                    name="verificacionInicial"
+                    class="slider2"
+                    id="vi"
+                    data-role="slider"
+                  >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th>2.) Revisión general</th>
+                <td>
+                  <select
+                    name="revisionGeneral"
+                    class="slider2"
+                    id="rg"
+                    data-role="slider"
+                  >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th>3.) Limpieza general</th>
+                <td>
+                  <select
+                    name="limpiezaGeneral"
+                    class="slider2"
+                    id="lg"
+                    data-role="slider"
+                  >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th>4.) Ajuste Excentricidad de carga &nbsp;&nbsp;&nbsp;</th>
+                <td>
+                  <select
+                    name="ajusteExcentricidad"
+                    class="slider2"
+                    id="aec"
+                    data-role="slider"
+                  >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th>5.) Programacion indicador</th>
+                <td>
+                  <select
+                    name="programacionIndicador"
+                    class="slider2"
+                    id="pi"
+                    data-role="slider"
+                  >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th>6.) Ajuste de punto cero</th>
+                <td>
+                  <select
+                    name="ajustePuntoCero"
+                    class="slider2"
+                    id="apc"
+                    data-role="slider"
+                  >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th>7.)Ajuste de peso</th>
+                <td>
+                  <select
+                    name="ajustePeso"
+                    class="slider2"
+                    id="ap"
+                    data-role="slider"
+                  >
+                    <option value="no">No</option>
+                    <option value="si">Si</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th>8.)Elaboracion de protocolo</th>
+                <td>
+                  <select
+                    name="elaboracionProtocolo"
+                    class="slider2"
+                    id="ep"
+                    data-role="slider"
+                  >
+                    <option value="si">Si</option>
+                    <option value="no">No</option>
+                  </select>
+                </td>
+              </tr>
+
+              <tr>
+                <th></th>
+                <td>
+                  <button onClick="guardarInforme()">Guardar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div id="itemCotizar">
+            <h2>Item a Cotizar</h2>
+            <textarea class="item"></textarea>
+          </div>
+          <br />
+          <div id="observaciones">
+            <h2>observaciones</h2>
+            <textarea class="observaciones"></textarea>
+          </div>
+        </form>
+      </div>
+      <div id="separador" style="clear: both"></div>
+      <footer class="footerMenu">
+        <ul class="listaFooter">
+          <li>
+            <a href="#equiposRealizar"><span class="meu"></span></a>
+          </li>
+          <li>
+            <a href=""><span class="sincronizar"></span></a>
+          </li>
+          <li>
+            <a href=""><span class="reportarFallo"></span></a>
+          </li>
+          <li>
+            <a href=""><span class="salir"></span></a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>

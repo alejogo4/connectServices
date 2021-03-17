@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" script-src="unsafe-inline" ; />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="css/mycss.css" />
+    <title>Registro de usuario</title>
+  </head>
+  <body>
+    <div id="contenedor">
+      <header></header>
+      <section id="contenido">
+        <div id="login">
+          <div id="foto"></div>
+          <img
+            src="img/loguin.png"
+            alt="escarapela"
+            class="escarapela"
+            width="45%"
+          />
+          <input
+            type="text"
+            id="usuario"
+            placeholder="Usuario"
+            style="position: absolute"
+          />
+          <input
+            type="password"
+            id="pass"
+            placeholder="Contraseña"
+            style="position: absolute"
+          />
+          <input
+            type="button"
+            class="ingresar"
+            value="Ingresar"
+            style="position: absolute"
+          />
+        </div>
+      </section>
+      <footer></footer>
+    </div>
+    <script src="cordova.js"></script>
+    <script src="js/jquery.js"></script>
+    <script>
+      //centrar en el documento
+      $(document).ready(function () {
+        $(window).resize(function () {
+          $("#contenido").css({
+            paddingTop:
+              ($(window).height() - $("#contenido").outerHeight()) / 2,
+          });
+        });
+
+        $(window).resize();
+      });
+
+      //Inicio seccion  NUEVOS: "eduardogutierrez","robinsonperez","oscartoro"
+      var usuarios = new Array(
+        "edisonarley",
+        "johnnyarley",
+        "oscarfelipe",
+        "mauricio",
+        "carlosandres",
+        "cristianalexander",
+        "luisfernando",
+        "miguel",
+        "dairojose",
+        "jesusarmando",
+        "joan",
+        "jorgefabio",
+        "andreadelpilar",
+        "oswaldotomas",
+        "joseluis",
+        "juancarlos",
+        "joelantonio",
+        "jorgeluis",
+        "edwin",
+        "zoraimacecilia",
+        "yairabel",
+        "nadirisaias",
+        "cristianenrique",
+        "luisgabriel",
+        "jorgeeliecer",
+        "alberto",
+        "carmenalicia",
+        "andrey",
+        "duberney",
+        "juanalberto",
+        "guillermoandres",
+        "hugoalberto",
+        "luisalberto",
+        "hectorfernando",
+        "oscarjunior",
+        "milenaecheverry",
+        "luiseduardo",
+        "johnfredy",
+        "omarhenry",
+        "bayron",
+        "tecnico"
+      );
+
+      var pass = new Array(
+        "edisonarley",
+        "johnnyarley",
+        "oscarfelipe",
+        "mauricio",
+        "carlosandres",
+        "cristianalexander",
+        "luisfernando",
+        "miguel",
+        "dairojose",
+        "jesusarmando",
+        "joan",
+        "jorgefabio",
+        "andreadelpilar",
+        "oswaldotomas",
+        "joseluis",
+        "juancarlos",
+        "joelantonio",
+        "jorgeluis",
+        "edwin",
+        "zoraimacecilia",
+        "yairabel",
+        "nadirisaias",
+        "cristianenrique",
+        "luisgabriel",
+        "jorgeeliecer",
+        "alberto",
+        "carmenalicia",
+        "andrey",
+        "duberney",
+        "juanalberto",
+        "guillermoandres",
+        "hugoalberto",
+        "luisalberto",
+        "hectorfernando",
+        "oscarjunior",
+        "milenaecheverry",
+        "luiseduardo",
+        "johnfredy",
+        "omarhenry",
+        "bayron",
+        "tecnico"
+      );
+
+      $(".ingresar").click(function () {
+        var us = $("#usuario").val();
+        var contrasena = $("#pass").val();
+
+        for (i = 0; i < usuarios.length; i++) {
+          if (
+            usuarios[i] == us.toLowerCase() &&
+            pass[i] == contrasena.toLowerCase()
+          ) {
+            window.localStorage.setItem("user", usuarios[i]);
+            url = "menu.html";
+            $(location).attr("href", url);
+          }
+        }
+      });
+
+      $("#usuario").blur(function () {
+        var usuario = $("#usuario").val();
+        $("#foto").html("<img src='img/tecnicos/noImage.png' width='100%' >");
+      });
+
+     
+      function params(obj){
+        return JSON.stringify(obj);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,555 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+</head>
+
+<body>
+
+<div id="contenedor">
+      <header></header>
+      <section id="contenido" class="pExcentricidad">
+      
+     <h2>Prueba de excentricidad</h2>
+     <div class="recordar">
+          <h5>Cap<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaCapMin"></span></span></h5>
+          <h5 style="margin-top:-17px">d<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaD"></span></span></h5>
+     </div>
+      <hr>
+        <form id="estados" method="post" style="margin-left:8%">
+        
+      <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" style="float:left; width:50%">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">Carga <span class="medida" style="margin:0">(kg)</span></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="cargaExtdd" onBlur="compararExtdd(this.value)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable">Posición</th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin:0">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center"><span class="letraGriega">I<sub>i</sub> - I<sub>1</sub><br></span><span class="medida" style="margin:0">(kg)</span></th>
+            </tr>
+          </thead>
+          
+          <tbody class="listasExcentricidad">
+          
+          </tbody>
+      
+      </table>    
+         </form>
+         
+      <div id="contforma">
+        <select name="formas" class="formas" id="formas" onChange="numeroFormas()">
+            <option value="" selected>Seleccionar equipo</option>
+            <option value="cdra5">Cuadrada 5 Puntos</option>
+            <option value="clar5">Circular 5 Puntos</option>
+            <option value="tlar4">Triangular 4 Puntos</option>
+            <option value="tbp3">Tanque bajo perfil 3 Puntos</option>
+            <option value="tms3">Tanque modulo de pesaje suspendido 3 Puntos</option>
+            <option value="tbp4">Tanque bajo perfil 4 Puntos</option>
+            <option value="t3">Tolva 3 Puntos de apoyo </option>
+            <option value="riel">Riel 3 puntos </option>
+            <option value="t4">Tolva 4 Puntos de apoyo </option>
+            <option value="ta4">Tolva - Agregados 4 Puntos de apoyo</option>
+            <option value="c2">Camionera 2 Modulos de pesaje</option>
+            <option value="c3">Camionera 3 Modulos de pesaje </option>
+            <option value="c4">Camionera 4 Modulos de pesaje </option>
+            <option value="c5">Camionera 5 Modulos de pesaje </option>
+		</select>
+        <div id="fotoForma"></div>
+      </div>
+      <br>
+      <br>
+      <div id="criterio" style="clear:both; margin-top:10px;margin-left:26%">
+      
+        <div id="titulosCriterio" style="width:20%; float:left; margin-top:23px; ">
+           Criterio:
+           <br><br>
+           Calculo<span class="medida" style="margin:0">(kg)</span>:
+           <br><br>
+           Conforme:
+        </div><!--cierra titulosCriterio-->
+        
+        <div id="resCriterio" style="float:left; width:40%; position:relative">
+           <h4>|<span class="letraGriega" style="display:inline-block;">I<sub>i</sub> - I<sub>1</sub><br></span>|<sub>max</sub> ≤  |EMP|  </h4></div>
+           <br>
+           <br>
+           <div id="diferencias" style="position:absolute; display:inline-block; left:43%">
+             <h4 id="maxI" ></h4>&nbsp; &nbsp;<h4 class="mayorOmenor"></h4>&nbsp; &nbsp;<h4 id="emp"></h4>
+           </div><!--cierra diferencias-->  
+           <br>
+           <br>
+           <h4 id="conformidad" style="position: absolute;left: 42%;bottom:-19px;"></h4>
+        </div><!--cierra resCtiterio-->
+             
+  
+     </section>
+      
+      
+       <!--Empieza repetibilidad-->
+       
+       
+       
+       <hr style="clear:both;">
+       <h2 style="clear:both; margin-top:50px">Prueba de Repetibilidad</h2>
+       <div class="recordar">
+          <h5>Cap<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaCapMin"></span></span></h5>
+          <h5 style="margin-top:-17px">d<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaD"></span></span></h5>
+       </div>
+       <hr>
+        <form id="repetibilidad" method="post">
+        
+  <table data-role="table" id="movie-table"  data-mode="reflow" class="ui-responsive table-stroke tablaGrande" style="float:left; width:30%;">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center;line-height:80px;width:37% !important">Carga <span class="medida" style="margin-left:2px">(kg)</span></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="cargaRepetibilidad" onBlur="capturaCarga(this)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasRepetibilidad listasR">
+          
+          <tr>
+            <th>1</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>2</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>3</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>4</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>5</th>
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr> 
+          </tbody>
+      
+      </table>
+      
+      <!--segunda-->
+      <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" style="float:left; width:23%; margin-left:5%;">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center;line-height:80px">Carga<span class="medida" style="margin-left:5px;">(kg)</span></th>
+              <th data-priority="1" class="titleTable agrandar"><input type="number" class="cargaRepetibilidad" onBlur="capturaCarga(this)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>     
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasRepetibilidad2 listasR">
+          
+          <tr>
+           
+             <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+           
+             <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+          
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+         
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+      
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td class="agrand">
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr> 
+          </tbody>
+      
+      </table>
+      
+      <!--Tercera-->
+      
+      <!--<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke" style="float:left; width:30%; margin-left:5%;">
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center; line-height:80px">Carga<span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable"><input type="number" class="cargaRepetibilidad" onBlur="capturaCarga(this)"></th>
+            </tr>
+          </thead>
+          <thead>
+            <tr>
+           <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasRepetibilidad2 listasR">
+          
+          <tr>
+           
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+        
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+         
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+           
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr>
+           <tr>
+         
+              <td>
+                <input type="number" id="indRepetibilidad" onBlur="resultadoRepetibilidad(this)">
+              </td>
+              <td>
+                <input type="text" class="resultado2" disabled>
+              </td>
+           </tr> 
+          </tbody>
+      
+      </table>-->
+          
+         </form> 
+     <div id="criterios" style="clear:both;">  
+       <div id="criterio2" style=" margin-top:10px; margin-left:24.5%">
+      
+        <div id="titulos2" style="width:14%; float:left; margin-top:23px; ">
+           Criterio<sub>1</sub>:
+           <br><br>
+           Calculo<sub>1</sub><span class="medida" style="margin:0">(kg)</span>:
+           <br><br>
+           Conforme<sub>1</sub>:
+        </div>
+        
+        <div id="resCriterio2" style="float:left; width:31%; position:relative">
+        
+            <h4>|<span class="letraGriega" style="display:inline-block;">E<sub>max</sub> - E<sub>min</sub><br></span>| ≤  |EMP|  </h4>
+            <br>
+            <br>
+            <div id="diferencias2" style="position:absolute; display:inline-block; top:39px;">
+              <h4 id="maxI2"></h4>&nbsp; &nbsp;<h4 class="mayorOmenor2"></h4>&nbsp; &nbsp;<h4 id="emp2"></h4> 
+            </div><!--cierra diferencias-->  
+              <br>
+              <br>
+            <h4 id="conformidad2" style="top: 74px; position:absolute"></h4>
+             
+        </div><!--cierra resCtiterio-->      
+      </div> 
+      
+      <div id="criterio2b" style=" margin-top:10px; margin:-20px 0 0 14%">
+      
+        <div id="titulos2b" style="width:14%; float:left; margin-top:23px; ">
+           Criterio<sub>2</sub>:
+           <br><br>
+           Calculo<sub>2</sub><span class="medida" style="margin:0">(kg)</span>:
+           <br><br>
+           Conforme<sub>2</sub>:
+        </div>
+        
+        <div id="resCriterio2b" style="float:left; width:20%; position:relative">
+        
+            <h4>|<span class="letraGriega" style="display:inline-block;">E<sub>max</sub> - E<sub>min</sub><br></span>| ≤  |EMP|  </h4>
+            <br>
+            <br>
+            <div id="diferencias2b" style="position:absolute; display:inline-block; top:39px;">
+              <h4 id="maxI2b"></h4>&nbsp; &nbsp;<h4 class="mayorOmenor2b"></h4>&nbsp; &nbsp;<h4 id="emp2b"></h4>
+            </div><!--cierra diferencias-->  
+              <br>
+              <br>
+            <h4 id="conformidad2b" style="top: 74px; position:absolute"></h4>
+             
+        </div><!--cierra resCtiterio-->      
+      </div> 
+    </div>     
+     <!-- Cierra repetibilidad-->
+     
+      
+      <h2 style="clear:both">Prueba de Exactitud</h2>
+      <div class="recordar">
+          <h5>Cap<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaCapMin"></span></span></h5>
+          <h5 style="margin-top:-17px">d<span class="medida" style="margin:0">(kg): &nbsp; &nbsp;<span class="indicaD"></span></span></h5>
+     </div>
+      <hr>
+        <form id="exactitud" method="post" style="margin-left:8%; width:100%">
+        
+      <table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">        
+          <thead>
+            <tr>
+              <th data-priority="1" class="titleTable"></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Carga<br> <span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">indicación(<span class="letraGriega">I</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+              <th data-priority="1" class="titleTable" style="line-height:23px;text-align:center">Error(<span class="letraGriega">E</span>)<br><span class="medida" style="margin-left:5px">(kg)</span></th>
+            </tr>
+          </thead>
+          <tbody class="listasExactitud">
+          
+          <tr>
+            <th>1</th>
+              <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>2</th>
+             <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud"  onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input  class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>3</th>
+            <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input  class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>4</th>
+              <td>
+                <input type="number" id="cargaExactitud"  onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>5</th>
+              <td>
+                <input type="number" id="cargaExactitud" onBlur="ponerFormato(this)">
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>4</th>
+              <td>
+                <input type="number" id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>3</th>
+             <td>
+                <input type="number"  id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud"  onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>2</th>
+              <td>
+                <input type="number" id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+           <tr>
+            <th>1</th>
+              <td>
+                <input type="number" id="cargaExactitud" disabled>
+              </td>
+              <td>
+                <input type="number" id="indExactitud" onBlur="obtenerErrorExactitud(this)" >
+              </td>
+              <td>
+                <input class="resultado3" disabled>
+              </td>
+           </tr>
+                       
+          </tbody>
+      
+      </table>    
+         </form> 
+         
+      <div id="criterio2" style="clear:both; margin-top:10px; margin-left:40%">
+      
+        <div id="titulos2" style="width:18%; float:left; margin-top:23px; ">
+           Criterio:
+           <br><br>
+           Conforme:
+        </div>
+        
+        <div id="resCriterio3" style="float:left; width:40%; position:relative">
+        
+            <h4>|<span class="letraGriega" style="display:inline-block;">E<sub>i</sub><br></span>| ≤  |EMP|  </h4>
+            <br>
+            <br>
+            <!--<div id="diferencias3" style="position:absolute; display:inline-block; top:39px;">
+              <h4 id="maxI3" ></h4>&nbsp; &nbsp;<h4 class="mayorOmenor3"></h4>&nbsp; &nbsp;<h4 id="emp3"></h4>
+            </div><!--cierra diferencias-->  
+          
+            <h4 id="conformidad3" style="top: 34px; position:absolute"></h4>
+             
+        </div><!--cierra resCtiterio-->      
+      </div>     
+           
+      <div id="grafico" style="width:94%; margin-bottom:40px; background:#FFF;position:relative">
+        <a data-role="button" onClick="mostrarGrafica()" style="width:80%; margin-left:10%">Mostrar gráfica</a>
+        <h4>Errores máximos permitidos según:<span class="tolerancia"></span></h4>
+        <div class="taparLogo"></div>
+          <div class="taparX"><h6 style="text-align:center">Cargas<span class="medida" style="margin-left:5px">(kg)</span></th></h6></div>
+          <div class="taparY"><h6 class="rotateTol" style="text-align:center">Tolerancia<span class="medida" style="margin-left:5px">(kg)</span></th></h6></div>
+          <div class="taparTitulo"></div>
+          <div class="rayaCero"></div>
+          <div class="idLineas">
+             <ul>
+                <li><span class="creciente"></span><h5 style="margin:2px 0 22px -21px">Creciente</h5></li>
+                <li><span class="decreciente"></span><h5 style="margin:2px 0 22px -21px">Decreciente</h5></li>
+             </ul>
+          </div>
+        <div class="graph" style="position:relative"> 
+          Cargando...
+        </div>
+      </div>   
+      
+           
+     </section>
+     <div id="incertidumbre" style="clear:both;">
+     
+       <h2 style="margin-bottom:-15px;">INCERTIDUMBRE EXPANDIDA</h2>
+       <h3 style="font-family:'Book Antiqua', Palatino, serif; font-style:italic; display:inline-block">U</h3><h5 style="display:inline-block">E</h5><span class="medida" style="margin-left:5px;display:inline-block">(kg):</span><span id="ue" style="display:inline-block; font-weight:bold0"></span>
+        <p style="margin-top:-15px">Con un k=2 para una probabilidad de cobertura de un 95% de las mediciones realizadas.</p>
+     </div>      
+         <div id="separador"></div>      
+      </section>
+      <div style="margin-top:400px;display:none">
+     <button onClick="guardarPruebas()">Guardar</button> 
+     </div>
+      <footer class="footerMenu">
+        
+        <ul class="listaFooter">
+              <li><a href="#equiposRealizar"><span class="meu"></span></a></li>
+              <li><a href=""><span class="sincronizar"></span></a></li>
+              <li><a><span class="reportarFallo"></span></a></li>
+              <li><a href=""><span class="salir"></span></a></li>
+        </ul>
+      </footer>
+    </div>
+ 
+</body>
+</html>
